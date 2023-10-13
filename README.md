@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Table 3 Phase 2 Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Home
 
-In the project directory, you can run:
+* [Dependencies](#dependencies)
+* [Starting the Application](#starting-the-application)
+* [Using the Application](#using-the-application)
+* [Optional Features](#optional-features)
+* [Potential Improvements](#potential-improvements)
+* [License](#license)
+* [Attributions](#attributions)
+* [What I Learned](#what-i-learned)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Intro To Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- This project is a site where a user can play `Sudoku`.
+- This project was made to complete the assignment `Phase 2 Project` for the `SE-West-091123` class for the [Flatiron](https://flatironschool.com/) Software Engineering Boot Camp.
+- The project was completed using the following: `JavaScript`, `HTML`, `CSS`, `React`.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dependencies
 
-### `npm run build`
+- The following is needed to run this application: `Node`, `JSON Server`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- You must have access to these dependencies in the directory that you are running this application in. If your environment does not have these requirements, you may install them in this order by going to these websites and following the installation instructions:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Npm - Node.JS](https://www.npmjs.com/package/node)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Npm - JSON Server](https://www.npmjs.com/package/json-server)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Starting the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Make sure nothing is currently running on `http://localhost:3000` or on `http://localhost:3001`.
+- Open a terminal window in the main directory of where this project is located on your computer.
+- Run `npm install`.
+- When the dependencies are finished loading, run `npm run server`.
+- It should be running on `http://localhost:3001` and your terminal should look something like this:
+- ==============================================
+    ![JSON Server running correctly.](./assets/server-pic.png "JSON Server")
+- ==============================================
+- Open another terminal window in the main directory of where this project is located on your computer
+- Run `npm start`.
+- It should run on `http://localhost:3000` take you to a page that looks like this:
+- ==============================================
+    <!-- ![Home page of app.](./assets/index.png "Home Page") -->
+- ==============================================
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Using the Application
 
-## Learn More
+- 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Optional Features
 
-### Code Splitting
+- 
+- ==============================================
+    <!-- ![Home page of app.](./assets/dark-index.png "Home Page") -->
+- ==============================================
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Potential Improvements
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
+- This project is is made in conjunction with the standard `MIT` license provided by `GitHub` upon creation of a new repository. A copy of the license is included with this project in a file named: `LICENSE`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Attributions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- The project was completed with collaboration from: `Joseph Lee`, `Michael Phan`, and `Brian Richie Sr.`
+- This project was created with combination of skills learned from the `Flatiron` curriculum and our own individual research.
+- The data used to seed the original data prior to being modified for the purposes of this project was supplied by [Dosuku](https://https://sudoku-api.vercel.app/) created by `Raghav Gupta`.
+- And of course, thank you [Stack Overflow](https://stackoverflow.com/).
 
-### Deployment
+## What I Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- `Joseph`: 
+- `Michael`:
+- `Brian`:  Thank you Joseph, Michael, and the `Flatiron` community.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* [Back To Top](#table-3-phase-2-project)
