@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import '../index.css';
 import LoginForm from './LoginForm';
 import MainBody from './MainBody';
 
