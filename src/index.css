@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ========= Header ========= */
+
+header {
+  padding: 25px;
+  background-color:black;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  color: dodgerblue;
+}
