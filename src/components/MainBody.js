@@ -1,10 +1,11 @@
 import NavBar from "./NavBar"
+import PlayField from "./PlayField"
 
 const MainBody = () => {
     return (
         <>
             <NavBar />
-            <h1>Hello World!</h1>
+            <PlayField />
         </>
     )
 }
