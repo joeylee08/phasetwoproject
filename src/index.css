@@ -25,3 +25,29 @@ header {
   margin: 0 10px;
   color: dodgerblue;
 }
+
+nav.hidden {
+  height: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ========= Body ========= */
+
+#error h1 {
+  margin: 0;
+}
+
+#error {
+  background-color: #800000;
+  color: #eee;
+  font-weight: bold;
+  padding: 35px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+}

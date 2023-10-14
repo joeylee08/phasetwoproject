@@ -1,17 +1,28 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 const links = ["Home", "About", "Instructions", "Leader Board", "Your Puzzles", "Sudoku Store"];
 
 const NavBar = () => {
+
     const mappedLinks = links.map(link => {
-        return <Link className="navLink" key={uuid()} to={`/${link === "Home" ? "" : link.toLowerCase().split(" ").join("")}`}>{link}</Link>
+        return (    
+            <NavLink
+                to={`/${link === "Home" ? "" : link.toLowerCase().split(" ").join("-")}`}
+                key={uuid()}
+                className={"navLink"}
+            >
+                {link}
+            </NavLink>
+        )
     })
 
     return (
         <header>
-            {mappedLinks}
+            <nav>
+                {mappedLinks}
+            </nav>
         </header>
     )
 }

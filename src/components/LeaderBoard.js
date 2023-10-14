@@ -3,7 +3,7 @@
 const LeaderBoard = () => {
     return (
         <>
-            <h1>LeaderBoard</h1>
+            <h1>Leader Board</h1>
         </>
     )
 }
