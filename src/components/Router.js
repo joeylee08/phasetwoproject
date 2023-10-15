@@ -9,6 +9,8 @@ import MainBody from "./MainBody";
 import LoginForm from "./LoginForm";
 import Error from "./Error";
 
+/* Look into Navigate component for alternate to null in conditional rendering - https://learning.flatironschool.com/courses/6844/pages/programmatic-navigation?module_item_id=607232 */
+
 function Router({ showApp }) {
     const routes =  ( 
         <>
