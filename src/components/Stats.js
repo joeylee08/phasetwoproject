@@ -1,9 +1,12 @@
 
 
 const Stats = () => {
-  <div id="stats">
-    
-  </div>
+  
+  return (
+    <div id="stats">
+      
+    </div>
+  )
 }
 
 export default Stats
