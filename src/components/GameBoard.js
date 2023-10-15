@@ -1,9 +1,12 @@
 import React from 'react'
 
 const GameBoard = () => {
-  <div id="gameBoard">
-    
-  </div>
+  
+  return (
+    <div id="gameboard">
+      
+    </div>
+  )
 }
 
 export default GameBoard
