@@ -26,6 +26,7 @@ header {
   color: dodgerblue;
 }
 
+
 #playfield {
   display: grid;
   grid-template-columns: repeat(5, 20%);
@@ -58,4 +59,30 @@ header {
   border: 2px solid orange;
   grid-row: 2 / span 4;
   grid-column: 2 / span 4;
+
+nav.hidden {
+  height: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ========= Body ========= */
+
+#error h1 {
+  margin: 0;
+}
+
+#error {
+  background-color: #800000;
+  color: #eee;
+  font-weight: bold;
+  padding: 35px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+
 }

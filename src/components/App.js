@@ -1,12 +1,15 @@
+import { useState } from "react";
+import NavBar from "./NavBar";
+import HiddenNavBar from "./HiddenNavBar";
+import Router from "./Router";
 import '../index.css';
-import LoginForm from './LoginForm';
-import MainBody from './MainBody';
 
 function App() {
+  const [showApp, setShowApp] = useState(true);
   return (
     <>
-      <LoginForm />
-      <MainBody />
+      {showApp ? <NavBar /> : <HiddenNavBar />}
+      <Router showApp={showApp} />
     </>
   );
 }
