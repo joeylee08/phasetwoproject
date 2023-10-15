@@ -3,8 +3,9 @@ import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
 const PlayField = () => {
+  
   return (
-    <div id="playField">
+    <div id="playfield">
       <SideBar />
       <Stats />
       <GameBoard />
