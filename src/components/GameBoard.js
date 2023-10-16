@@ -4,7 +4,7 @@ const GameBoard = ({ currentPuzzle }) => {
   const solution = currentPuzzle.solution;
   
   return (
-    <div id="gameboard">
+    <div id="gameboard" className='playfield-elements'>
       <div>
         <table id="sudoku-table">
           <tbody>

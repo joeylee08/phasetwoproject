@@ -3,7 +3,7 @@
 const Stats = () => {
   
   return (
-    <div id="stats">
+    <div id="stats" className='playfield-elements'>
       
     </div>
   )
