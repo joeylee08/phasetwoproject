@@ -1,10 +1,10 @@
 import PlayField from "./PlayField"
 
-const MainBody = ({ currentUser, currentPuzzle }) => {
+const MainBody = ({ currentUser }) => {
     return (
         <>
             <h1>Main Body</h1>
-            <PlayField currentUser={currentUser} currentPuzzle={currentPuzzle} />
+            <PlayField currentUser={currentUser} />
         </>
     )
 }

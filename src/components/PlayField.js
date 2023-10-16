@@ -2,24 +2,27 @@ import { useEffect, useState } from "react";
 import SideBar from "./SideBar"
 import Stats from "./Stats"
 import GameBoard from "./GameBoard"
+
 const URL = "http://localhost:3001/puzzles/";
 
 const PlayField = ({ currentUser }) => {
-  const [puzzle, setPuzzle] = useState({});
+  const [currentPuzzle, setCurrentPuzzle] = useState({});
+  const [currentAnswers, setCurrentAnswers] = useState([])
+
   const urlId = (currentUser && currentUser.puzzles.saved[0]) || Math.floor(Math.random() * 250) + 1
   
-  const displayPuzzle = (puzzleObj) => {
+  const displayPuzzle = (puzzle, answers) => {
     const tdArray = Array.from(document.querySelectorAll("td"));
-    const newObj = {
-      id: puzzleObj.id,
-      puzzle: puzzleObj.newboard.grids[0].value.flat(),
-      solution: puzzleObj.newboard.grids[0].solution.flat(),
-      difficulty: puzzleObj.newboard.grids[0].difficulty
-    }
-    setPuzzle(newObj);
+
+    setCurrentPuzzle(puzzle)
+    setCurrentAnswers(answers)
+
+    console.log("puzzle: ", puzzle)
+    console.log("answers: ", answers)
+
     tdArray.forEach((item, idx) => {
-      if (newObj.puzzle[idx]) {
-        item.textContent = newObj.puzzle[idx]
+      if (answers[idx]) {
+        item.textContent = answers[idx]
       } else {
         const input = document.createElement("input")
         input.value = "";
@@ -40,7 +43,7 @@ const PlayField = ({ currentUser }) => {
       }
     })
     .then(data => {
-      displayPuzzle(data)
+      displayPuzzle(data, data.newboard.grids[0].value.flat())
     })
     .catch(err => alert(err));
   }, [])
@@ -48,9 +51,9 @@ const PlayField = ({ currentUser }) => {
   
   return (
     <div id="playfield">
-      <SideBar currentPuzzle={puzzle} />
-      <Stats currentPuzzle={puzzle} />
-      <GameBoard currentPuzzle={puzzle} />
+      <SideBar currentPuzzle={currentPuzzle} />
+      <Stats currentPuzzle={currentPuzzle} />
+      <GameBoard currentPuzzle={currentPuzzle} />
     </div>
   )
 }
