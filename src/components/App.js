@@ -1,55 +1,71 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import NavBar from "./NavBar";
+import HiddenNavBar from "./HiddenNavBar";
+import Router from './Router'; 
 import '../index.css';
 
-import About from "./About";
-import Instructions from "./Instructions";
-import LeaderBoard from "./LeaderBoard";
-import SudokuStore from "./SudokuStore";
-import YourPuzzles from "./YourPuzzles";
-import MainBody from "./MainBody";
-import NavBar from "./NavBar";
-import LoginModal from "./LoginModal"; 
+const currentURL = "http://localhost:3001/currentUser"
 
 function App() {
-  const [showLoginModal, setShowLoginModal] = useState(!localStorage.getItem('isLoggedIn'));
+  const [showApp, setShowApp] = useState(false);
+  const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
-    if (localStorage.getItem('isLoggedIn')) {
-      setShowLoginModal(false);
-    }
+    fetch(currentURL)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw (response.statusText)
+      }
+    })
+    .then(data => {
+      if (data.id) {
+        setCurrentUser(data)
+        setShowApp(true)
+      }
+    })
+    .catch(err => alert(err))
   }, []);
 
+  const postCurrent = (userData) => {
+    fetch(currentURL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw (response.statusText)
+      }
+    })
+    .then(data => {
+      setCurrentUser(data)
+    })
+    .catch(err => alert(err))
+  }
+
   const handleLoginSuccess = (data) => {
-    localStorage.setItem('isLoggedIn', true);
-    setShowLoginModal(false);
+    setShowApp(true);
+    postCurrent(data)
   };
 
   const handleContinueAsGuest = () => {
-    setShowLoginModal(false);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn');
-    setShowLoginModal(true);
+    postCurrent({id: 0});
+    setShowApp(false);
   };
 
   return (
     <>
-      {showLoginModal && <LoginModal onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} />}
-      {!showLoginModal && (
-        <>
-          <NavBar onLogout={handleLogout} />
-          <Routes>
-            <Route path="/" element={<MainBody />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/leaderboard" element={<LeaderBoard />} />
-            <Route path="/instructions" element={<Instructions />} />
-            <Route path="/yourpuzzles" element={<YourPuzzles />} />
-            <Route path="/sudokustore" element={<SudokuStore />} />
-          </Routes>
-        </>
-      )}
+      {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} />
     </>
   );
 }

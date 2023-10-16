@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginModal.css';
+const URL = "http://localhost:3001/users/"
 
 function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -9,19 +10,29 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isLogin ? '/api/login' : '/api/register';
-
+    if (!email.trim()) {
+      return alert("Please enter a valid email")
+    }
+    if (!password.trim()) {
+      return alert("Please enter a valid password")
+    }
+    const urlEnd = isLogin ? email : '';
+    const configObj = isLogin ? {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    } : {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    }
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(`${URL}${urlEnd}`, configObj);
 
       const data = await response.json();
 
       if (response.ok) {
         onLoginSuccess(data);
+        console.log("data", data);
       } else {
         setError(data.message || 'An error occurred during login/registration.');
       }

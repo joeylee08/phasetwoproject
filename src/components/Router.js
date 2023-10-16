@@ -6,12 +6,12 @@ import LeaderBoard from "./LeaderBoard";
 import SudokuStore from "./SudokuStore";
 import YourPuzzles from "./YourPuzzles";
 import MainBody from "./MainBody";
-import LoginForm from "./LoginForm";
+import LoginModal from "./LoginModal";
 import Error from "./Error";
 
 /* Look into Navigate component for alternate to null in conditional rendering - https://learning.flatironschool.com/courses/6844/pages/programmatic-navigation?module_item_id=607232 */
 
-function Router({ showApp, currentPuzzle, currentUser }) {
+function Router({ showApp, currentPuzzle, currentUser, onContinueAsGuest, onLoginSuccess }) {
     const routes =  ( 
         <>
             <Route path="/about" element={<About />} />,
@@ -24,7 +24,7 @@ function Router({ showApp, currentPuzzle, currentUser }) {
   return (
     <>
       <Routes>
-        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} /> : <LoginForm />} />
+        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
         {showApp ? routes : null}
         {/* Default route to catch any routes that I have not declared */}
         <Route path="/:error" element={<Error />} />
