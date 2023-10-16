@@ -1,7 +1,19 @@
 {
+  "currentUser": {
+    "id": "brianrichiesr@gmail.com",
+    "username": "brianrichiesr",
+    "email": "brianrichiesr@gmail",
+    "password": "password",
+    "points": 0,
+    "consumables": [],
+    "puzzles": {
+      "saved": [],
+      "completed": []
+    }
+  },
   "users": [
     {
-      "id": 1,
+      "id": "joeylee08@gmail.com",
       "username": "joeylee08",
       "email": "joeylee08@gmail",
       "password": "password",
@@ -13,7 +25,7 @@
       }
     },
     {
-      "id": 2,
+      "id": "michaelalexanderphan@gmail.com",
       "username": "michaelalexanderphan",
       "email": "michaelalexanderphan@gmail.com",
       "password": "password",
@@ -25,7 +37,7 @@
       }
     },
     {
-      "id": 3,
+      "id": "brianrichiesr@gmail.com",
       "username": "brianrichiesr",
       "email": "brianrichiesr@gmail",
       "password": "password",
