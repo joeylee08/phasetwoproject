@@ -1,5 +1,42 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "joeylee08",
+      "email": "joeylee08@gmail",
+      "password": "password",
+      "points": 0,
+      "consumables": [],
+      "puzzles": {
+        "saved": [],
+        "completed": []
+      }
+    },
+    {
+      "id": 2,
+      "username": "michaelalexanderphan",
+      "email": "michaelalexanderphan@gmail.com",
+      "password": "password",
+      "points": 0,
+      "consumables": [],
+      "puzzles": {
+        "saved": [],
+        "completed": []
+      }
+    },
+    {
+      "id": 3,
+      "username": "brianrichiesr",
+      "email": "brianrichiesr@gmail",
+      "password": "password",
+      "points": 0,
+      "consumables": [],
+      "puzzles": {
+        "saved": [],
+        "completed": []
+      }
+    }
+  ],
   "puzzles": [
     {
       "newboard": {
