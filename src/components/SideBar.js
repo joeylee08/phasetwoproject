@@ -3,7 +3,7 @@ import React from 'react'
 const SideBar = () => {
   
   return (
-    <div id="sidebar">
+    <div id="sidebar" className='playfield-elements'>
       <ul>
         <li>Some Stuff</li>
         <li>More Stuff</li>

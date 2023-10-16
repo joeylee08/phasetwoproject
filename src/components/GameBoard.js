@@ -9,7 +9,7 @@ const GameBoard = ({ currentPuzzle }) => {
   }
   
   return (
-    <div id="gameboard">
+    <div id="gameboard" className='playfield-elements'>
       <div>
         <table id="sudoku-table">
           <tbody>
