@@ -1,50 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-const URL = "http://localhost:3001/puzzles/1";
-
-const GameBoard = () => {
-  const [puzzle, setPuzzle] = useState({});
+const GameBoard = ({ currentPuzzle }) => {
   
-  const displayPuzzle = (puzzleObj) => {
-    const tdArray = Array.from(document.querySelectorAll("td"));
-    const newObj = {
-      id: puzzleObj.id,
-      puzzle: puzzleObj.newboard.grids[0].value.flat(),
-      solution: puzzleObj.newboard.grids[0].solution.flat(),
-      difficulty: puzzleObj.newboard.grids[0].difficulty
-    }
-    setPuzzle(newObj);
-    tdArray.forEach((item, idx) => {
-      if (newObj.puzzle[idx]) {
-        item.textContent = newObj.puzzle[idx]
-      } else {
-        const input = document.createElement("input")
-        input.value = "";
-        input.classList.add("sudoku-input")
-        item.textContent = "";
-        item.append(input)
-      }
-      // newObj.puzzle[idx] ? item.textContent = newObj.puzzle[idx] :
-      //   (item.innerHTML = "",
-      //   item.append());
-    })
-  }
-
-  useEffect(() => {
-    fetch(URL)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw (response.statusText);
-      }
-    })
-    .then(data => {
-      displayPuzzle(data)
-    })
-    .catch(err => alert(err));
-  }, [])
-
   return (
     <div id="gameboard">
       <div>
