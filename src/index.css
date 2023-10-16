@@ -34,6 +34,22 @@ nav.hidden {
   color: dodgerblue;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.user-info {
+  margin-right: 20px;
+}
+
 
 #playfield {
   display: grid;
