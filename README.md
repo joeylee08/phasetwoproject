@@ -74,6 +74,7 @@
 - The project was completed with collaboration from: `Joseph Lee`, `Michael Phan`, and `Brian Richie Sr.`
 - This project was created with combination of skills learned from the `Flatiron` curriculum and our own individual research.
 - The data used to seed the original data prior to being modified for the purposes of this project was supplied by [Dosuku](https://https://sudoku-api.vercel.app/) created by `Raghav Gupta`.
+- The instructions for the app for provided by [Sudoku.com](https://sudoku.com/how-to-play/sudoku-rules-for-complete-beginners/).
 - And of course, thank you [Stack Overflow](https://stackoverflow.com/).
 
 ## What I Learned
