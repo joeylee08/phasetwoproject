@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const GameBoard = ({ currentPuzzle }) => {
+  const solution = currentPuzzle.solution;
   
   return (
     <div id="gameboard">
