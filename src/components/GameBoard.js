@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 const GameBoard = ({ currentPuzzle }) => {
   let solution = [];
-  if (currentPuzzle.newboard) {
-    solution = currentPuzzle.newboard.grids[0].solution.flat();
-    console.log("solution", solution)
-
+  if (currentPuzzle) {
+    if (currentPuzzle.newboard) {
+      solution = currentPuzzle.newboard.grids[0].solution.flat();
+      console.log("solution", solution, currentPuzzle)
+    }
   }
   
   return (

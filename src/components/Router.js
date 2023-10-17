@@ -11,20 +11,20 @@ import Error from "./Error";
 
 /* Look into Navigate component for alternate to null in conditional rendering - https://learning.flatironschool.com/courses/6844/pages/programmatic-navigation?module_item_id=607232 */
 
-function Router({ showApp, currentPuzzle, currentUser, onContinueAsGuest, onLoginSuccess }) {
+function Router({ showApp, currentPuzzle, currentUser, onContinueAsGuest, onLoginSuccess, updateUser }) {
     const routes =  ( 
         <>
             <Route path="/about" element={<About />} />,
             <Route path="/leader-board" element={<LeaderBoard />} />,
             <Route path="/instructions" element={<Instructions />} />,
-            <Route path="/your-puzzles" element={<YourPuzzles />} />,
+            <Route path="/your-puzzles" element={<YourPuzzles currentUser={currentUser} />} />,
             <Route path="/sudoku-store" element={<SudokuStore />} />
         </>
     )
   return (
     <>
       <Routes>
-        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
+        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} updateUser={updateUser} /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
         {showApp ? routes : null}
         {/* Default route to catch any routes that I have not declared */}
         <Route path="/:error" element={<Error />} />
