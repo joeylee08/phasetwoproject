@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "./NavBar";
 import HiddenNavBar from "./HiddenNavBar";
 import Router from './Router'; 
+import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
 const currentUserURL = "http://localhost:3001/currentUser"
@@ -12,6 +13,7 @@ function App() {
   const [showApp, setShowApp] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [allPuzzles, setAllPuzzles] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem('isUserActive') === 'true') {
@@ -79,10 +81,12 @@ function App() {
   };
 
   const handleLogout = () => {
+    postCurrent({id: 0});
     setShowApp(false);
     postCurrentUser({id: 0});
     localStorage.setItem('isUserActive', false)
     localStorage.setItem('currentUser', {})
+    navigate("/");
   };
 
   return (

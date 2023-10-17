@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 const NavBar = ({ onLogout }) => {
@@ -19,7 +19,7 @@ const NavBar = ({ onLogout }) => {
     <header>
       <nav>
         {mappedLinks}
-        <button onClick={onLogout} style={{ marginLeft: 'auto' }}>Logout</button>
+        <button id="logout" onClick={onLogout} style={{ marginLeft: 'auto' }}>Logout</button>
       </nav>
     </header>
   );

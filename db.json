@@ -1,10 +1,10 @@
 {
   "currentUser": {
-    "id": "joeylee08@gmail.com",
-    "username": "joeylee08",
-    "email": "joeylee08@gmail.com",
+    "id": "fakeuser@gmail.com",
+    "username": "fakeuser",
+    "email": "fakeuser@gmail.com",
     "password": "password",
-    "points": 200,
+    "points": 0,
     "consumables": [],
     "activePuzzle": {
       "puzzle": {
