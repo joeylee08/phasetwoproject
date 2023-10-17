@@ -55,6 +55,19 @@ function App() {
   };
 
   const handleContinueAsGuest = () => {
+    fetch("http://localhost:3001/users/fakeuser@gmail.com")
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw (response.statusText)
+      }
+    })
+    .then(data => {
+      setShowApp(true);
+      postCurrent(data)
+    })
+    .catch(err => alert(err))
   };
 
   const handleLogout = () => {
@@ -65,7 +78,7 @@ function App() {
   return (
     <>
       {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
-      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} />
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} updateUser={postCurrent} />
     </>
   );
 }

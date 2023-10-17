@@ -149,27 +149,20 @@ div#playfield .playfield-elements {
 
 /* ========= Instructions ========= */
 
-#instruct-h1 {
-  color: #670267;
-  text-align: center;
-}
-
-#instructions {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  justify-self: center;
-  padding: 25px 20%;
-}
-
-#instructions article {
+article {
   background-color: #eee;
   padding: 25px 50px;
   text-align: justify;
   margin: 25px;
   border-radius: 10px;
   border: 10px solid #800080;
+}
+
+#instructions, #leaders {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 25px 20%;
 }
 
 #instructions p {
@@ -183,4 +176,20 @@ div#playfield .playfield-elements {
 
 .img-article img {
   max-width: 90%;
+}
+
+#leaders ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+#leaders li {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  font-size: 21px;
+  font-weight: 500;
+  margin: 25px 0;
 }
