@@ -81,7 +81,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    postCurrent({id: 0});
+    postCurrentUser({id: 0});
     setShowApp(false);
     postCurrentUser({id: 0});
     localStorage.setItem('isUserActive', false)
