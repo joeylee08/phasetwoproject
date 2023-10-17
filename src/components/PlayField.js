@@ -3,10 +3,23 @@ import SideBar from "./SideBar"
 import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
-const PlayField = ({ currentUser }) => {
-  console.log(currentUser)
+const PlayField = ({ currentUser, setCurrentUser}) => {
   const answers = currentUser.activePuzzle.answers.flat();
   const solution = currentUser.activePuzzle.solution.flat();
+
+  const handleInput = (e) => {
+    const updated = answers.map((item, idx) => {
+      if (e.target.id === idx) return e.target.value;
+      else return item;
+    })
+    setCurrentUser({
+      ...currentUser,
+      activePuzzle: {
+        
+      }
+    })
+    console.log(answers)
+  }
   
   const displayPuzzle = (answers) => {
     const tdArray = Array.from(document.querySelectorAll("td"));
@@ -19,7 +32,7 @@ const PlayField = ({ currentUser }) => {
         input.id = idx
         input.value = "";
         input.classList.add("sudoku-input");
-        // input.addEventListener('input', updateAnswers)
+        input.addEventListener('input', handleInput)
         item.textContent = "";
         item.append(input)
       }
@@ -33,7 +46,7 @@ const PlayField = ({ currentUser }) => {
   return (
     <div id="playfield">
       <SideBar />
-      <Stats />
+      <Stats currentUser={currentUser} answers={answers}/>
       <GameBoard />
     </div>
   )
