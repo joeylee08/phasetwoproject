@@ -39,8 +39,8 @@ const PlayField = ({ currentUser, updateUser }) => {
     setCurrentPuzzle(puzzle)
     setCurrentAnswers(answers)
 
-    console.log("puzzle: ", puzzle)
-    console.log("answers: ", answers)
+    // console.log("puzzle: ", puzzle)
+    // console.log("answers: ", answers)
 
     tdArray.forEach((item, idx) => {
       if (answers[idx]) {
@@ -92,7 +92,7 @@ const PlayField = ({ currentUser, updateUser }) => {
       ...newList
     ]
 
-    console.log("user current puzzles", currentAnswers);
+    // console.log("user current puzzles", currentAnswers);
 
     updateUser(user);
 
