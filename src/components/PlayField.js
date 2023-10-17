@@ -4,8 +4,8 @@ import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
 const PlayField = ({ currentUser, setCurrentUser}) => {
-  const answers = currentUser.activePuzzle.answers.flat();
-  const solution = currentUser.activePuzzle.solution.flat();
+  const answers = currentUser.activePuzzle.answers;
+  const solution = currentUser.activePuzzle.solution;
 
   const handleInput = (e) => {
     const updated = answers.map((item, idx) => {
@@ -15,7 +15,7 @@ const PlayField = ({ currentUser, setCurrentUser}) => {
     setCurrentUser({
       ...currentUser,
       activePuzzle: {
-        
+
       }
     })
     console.log(answers)

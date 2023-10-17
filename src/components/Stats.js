@@ -7,7 +7,6 @@ const Stats = ({currentUser, answers}) => {
     //update localStorage currentUser[key] with currentUser[state]
 
     //patch DB with currentUser id, to include updated answers
-    const twoDimAnswersArr = answers
   }
   
   return (
