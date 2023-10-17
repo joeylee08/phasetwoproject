@@ -1,9 +1,12 @@
-
-
-const Stats = ({ saveGame }) => {
-
+const Stats = ({currentUser, answers}) => {
   const handleSaveGame = () => {
-    saveGame();
+    //make answers back to 2d array ?
+
+    //update localStorage > currentUser > 
+
+    //update localStorage currentUser[key] with currentUser[state]
+
+    //patch DB with currentUser id, to include updated answers
   }
   
   return (

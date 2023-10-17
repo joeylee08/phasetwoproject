@@ -5,7 +5,7 @@ const GameBoard = ({ currentPuzzle }) => {
   if (currentPuzzle) {
     if (currentPuzzle.newboard) {
       solution = currentPuzzle.newboard.grids[0].solution.flat();
-      console.log("solution", solution, currentPuzzle)
+      // console.log("solution", solution, currentPuzzle)
     }
   }
   
