@@ -14,7 +14,6 @@ function App() {
   const [allPuzzles, setAllPuzzles] = useState([]);
 
   useEffect(() => {
-    console.log(localStorage.getItem('currentUser'))
     if (localStorage.getItem('isUserActive') === 'true') {
       setCurrentUser(JSON.parse(localStorage.getItem('currentUser')))
       setShowApp(true)
@@ -83,13 +82,13 @@ function App() {
     setShowApp(false);
     postCurrentUser({id: 0});
     localStorage.setItem('isUserActive', false)
-    localStorage.setItem('currentUser', "")
+    localStorage.setItem('currentUser', {})
   };
 
   return (
     <>
       {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
-      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} updateUser={postCurrentUser} />
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     </>
   );
 }
