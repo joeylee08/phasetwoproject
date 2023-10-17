@@ -8,7 +8,7 @@ const Stats = ({ saveGame }) => {
   
   return (
     <div id="stats" className='playfield-elements'>
-      <button onClick={handleSaveGame}>Save Game</button>
+      <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
     </div>
   )
 }

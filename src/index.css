@@ -1,7 +1,13 @@
-body {
-  margin: 0;
+html {
   padding: 2rem;
   background-color: #cc97fb;
+  
+}
+
+body {
+  /* width: 95%; */
+  background-color: #cc97fb;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,11 +20,20 @@ code {
     monospace;
 }
 
+/* h1 {
+  padding: 0 2%;
+} */
+
 /* ========= Header ========= */
 
 header {
   padding: 25px;
-  background-color:black;
+  background-color: #ffc99d;
+  border: 10px solid #800080;
+  border-radius: 10px;
+  /* width: 92%; */
+  margin: 0 auto;
+  position: relative;
 }
 
 nav.hidden {
@@ -33,7 +48,11 @@ nav.hidden {
   text-decoration: none;
   font-weight: bold;
   margin: 0 10px;
-  color: dodgerblue;
+  color: #800080;
+}
+
+.navLink:hover {
+  color: black;
 }
 
 .navbar {
@@ -48,6 +67,24 @@ nav.hidden {
   gap: 20px;
 }
 
+#logout, #saveGame {
+  border: 5px solid #800080;
+  background-color: #800080;
+  border-radius: 5px;
+  color: #ffc99d;
+  font-weight: bold;
+  width: 100px;
+}
+
+#logout {
+  float: right;
+}
+
+#logout:hover {
+  border: 5px solid #ff580f;
+  background-color: #ff580f;
+}
+
 .user-info {
   margin-right: 20px;
 }
@@ -58,10 +95,11 @@ nav.hidden {
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(5, 20%);
   margin: auto;
-  width: 100%;
+  /* width: 95%; */
   height: 765px;
-  background-color: #dcbdf6;
-  border: 2px solid #613175;
+  background-color: #ffc99d;
+  border: 10px solid #800080;
+  border-radius: 10px;
 }
 
 div#playfield .playfield-elements {
@@ -76,12 +114,32 @@ div#playfield .playfield-elements {
   grid-column: 1 / span 1;
 }
 
+#sidebar li {
+  color: #800080;
+  list-style: none;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
 #stats {
   width: 100%;
   height: 100%;
   border: 2px solid red;
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
+  position: relative;
+}
+
+#saveGame {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-right: 25px;
+}
+
+#saveGame:hover {
+  border: 5px solid #05a405;
+  background-color: #05a405;
 }
 
 /* ========= Game Board ========= */
@@ -89,7 +147,6 @@ div#playfield .playfield-elements {
 #gameboard {
   width: 100%;
   height: 100%;
-  border: 2px solid orange;
   grid-row: 2 / span 4;
   grid-column: 2 / span 4;
 }
@@ -150,7 +207,7 @@ div#playfield .playfield-elements {
 /* ========= Instructions ========= */
 
 article {
-  background-color: #eee;
+  background-color: #ffc99d;
   padding: 25px 50px;
   text-align: justify;
   margin: 25px;
@@ -166,6 +223,7 @@ article {
 }
 
 #instructions p {
+  color: #800080;
   font-size: 21px;
   font-weight: 500;
 }
@@ -192,4 +250,25 @@ article {
   font-size: 21px;
   font-weight: 500;
   margin: 25px 0;
+}
+
+@media (max-width: 991px) {
+  .sudoku-input {
+    width: 35px;
+    height: 35px;
+  }
+  #sudoku-table {
+    height: 450px;
+    width: 450px;
+    margin: 12% auto 0;
+  }
+  #sudoku-table td {
+    font-size: 16px;
+  }
+  #sidebar li, .navLink {
+    font-size: 14px;
+  }
+  #sidebar ul {
+    padding-left: 10px;
+  }
 }

@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "./NavBar";
 import HiddenNavBar from "./HiddenNavBar";
 import Router from './Router'; 
+import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
 const currentURL = "http://localhost:3001/currentUser"
 
 function App() {
   const [showApp, setShowApp] = useState(false);
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(currentURL)
@@ -71,6 +73,7 @@ function App() {
   };
 
   const handleLogout = () => {
+    navigate("/");
     postCurrent({id: 0});
     setShowApp(false);
   };
