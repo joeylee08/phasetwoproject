@@ -24,7 +24,7 @@ function Router({ showApp, currentPuzzle, currentUser, onContinueAsGuest, onLogi
   return (
     <>
       <Routes>
-        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} updateUser={updateUser} /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
+        <Route path="/" element={showApp ? <MainBody currentUser={currentUser} currentPuzzle={currentPuzzle} /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
         {showApp ? routes : null}
         {/* Default route to catch any routes that I have not declared */}
         <Route path="/:error" element={<Error />} />

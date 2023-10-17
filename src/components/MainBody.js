@@ -4,7 +4,7 @@ const MainBody = ({ currentUser, updateUser }) => {
     return (
         <>
             <h1>Main Body</h1>
-            <PlayField currentUser={currentUser} updateUser={updateUser} />
+            <PlayField currentUser={currentUser} />
         </>
     )
 }
