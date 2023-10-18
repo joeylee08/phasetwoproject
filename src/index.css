@@ -20,10 +20,6 @@ code {
     monospace;
 }
 
-/* h1 {
-  padding: 0 2%;
-} */
-
 /* ========= Header ========= */
 
 header {
@@ -67,7 +63,7 @@ nav.hidden {
   gap: 20px;
 }
 
-#logout, #saveGame {
+#logout, #saveGame, #checkSolution {
   border: 5px solid #800080;
   background-color: #800080;
   border-radius: 5px;
@@ -137,7 +133,14 @@ div#playfield .playfield-elements {
   margin-right: 25px;
 }
 
-#saveGame:hover {
+#checkSolution {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-left: 25px;
+}
+
+#saveGame:hover, #checkSolution:hover {
   border: 5px solid #05a405;
   background-color: #05a405;
 }

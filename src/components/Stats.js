@@ -16,7 +16,7 @@ const Stats = ({currentUser, answers}) => {
   
   return (
     <div id="stats" className='playfield-elements'>
-      <button id="checkSolution" onClick={checkSolution}>Check Solution</button>
+      <button id="checkSolution" onClick={checkSolution}>Submit</button>
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
     </div>
   )
