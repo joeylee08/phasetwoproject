@@ -170,6 +170,7 @@ div#playfield .playfield-elements {
   font-weight: bold;
   font-size: 20px;
   width: 50px;
+  height: 40px;
 }
 
 #sudoku-table td.top {

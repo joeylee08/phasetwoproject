@@ -11,7 +11,7 @@ const Instructions = () => {
                 </article>
 
                 <article className="img-article">
-                    <img src="/sudoku-image-1.jpg" />
+                    <img src="/sudoku-image-1.jpg" alt="suduko instruction" />
                 </article>
 
                 <article>
@@ -34,7 +34,7 @@ const Instructions = () => {
                 </article>
 
                 <article className="img-article">
-                    <img src="/sudoku-image-2.jpg" />
+                    <img src="/sudoku-image-2.jpg" alt="suduko instruction" />
                 </article>
 
                 <article>

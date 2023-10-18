@@ -1,118 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import GameRow from './GameRow';
+import { v4 as uuid } from "uuid";
 
-const GameBoard = ({ currentPuzzle }) => {
-  let solution = [];
-  if (currentPuzzle) {
-    if (currentPuzzle.newboard) {
-      solution = currentPuzzle.newboard.grids[0].solution.flat();
-      // console.log("solution", solution, currentPuzzle)
+const GameBoard = ({ answers, handleInput }) => {
+
+  const displayPuzzle = (answers) => {
+    let arr = [];
+    for (let i = 0; i < 9; i++) {
+      let answersArr = answers.slice((i * 9), ((i + 1) * 9))
+      arr.push(<GameRow key={uuid()} iCount={i} answersArr={answersArr} handleInput={handleInput} />)
     }
+    return arr;
   }
+
+  const tableRows = displayPuzzle(answers);
   
   return (
     <div id="gameboard" className='playfield-elements'>
       <div>
         <table id="sudoku-table">
           <tbody>
-          <tr id="0">
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top right'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top right'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top right'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top right'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-            <td className='top'>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td className="right">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-          </tr>
+            {tableRows}
           </tbody>
         </table>
       </div>
