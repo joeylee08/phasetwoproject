@@ -3,7 +3,7 @@ import SideBar from "./SideBar"
 import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
-const PlayField = ({ currentUser, setCurrentUser}) => {
+const PlayField = ({ currentUser, setCurrentUser, postCurrentUser}) => {
   const answers = currentUser.activePuzzle.answers;
   const solution = currentUser.activePuzzle.solution;
 
@@ -19,7 +19,7 @@ const PlayField = ({ currentUser, setCurrentUser}) => {
     if (+e.target.value > 9) {
       e.target.value = e.target.value.slice(0, 1)
     }
-    
+
     updated = updated.map((item, idx) => {
     if (+e.target.id === idx) return +e.target.value;
     else return item;
@@ -60,7 +60,7 @@ const PlayField = ({ currentUser, setCurrentUser}) => {
   return (
     <div id="playfield">
       <SideBar />
-      <Stats currentUser={currentUser} answers={answers}/>
+      <Stats currentUser={currentUser} answers={answers} postCurrentUser={postCurrentUser}/>
       <GameBoard />
     </div>
   )

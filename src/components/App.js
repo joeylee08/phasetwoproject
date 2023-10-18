@@ -48,7 +48,7 @@ function App() {
     const randomPuzzle = allPuzzles[Math.floor(Math.random() * 250) + 1]
 
     data.activePuzzle.puzzle = data.saved[0] || randomPuzzle
-    data.activePuzzle.answers = data.activePuzzle.puzzle.newboard.grids[0].value
+    data.activePuzzle.answers = data.activePuzzle.answers || data.activePuzzle.puzzle.newboard.grids[0].value
     data.activePuzzle.solution = data.activePuzzle.puzzle.newboard.grids[0].solution
     
     localStorage.setItem('isUserActive', true)
@@ -95,7 +95,7 @@ function App() {
   return (
     <>
       {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
-      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} setCurrentUser={updateCurrentUser}/>
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} setCurrentUser={updateCurrentUser} postCurrentUser={postCurrentUser}/>
     </>
   );
 }
