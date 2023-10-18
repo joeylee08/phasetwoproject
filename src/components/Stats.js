@@ -1,13 +1,29 @@
-const Stats = ({currentUser, answers}) => {
+const Stats = ({currentUser, postCurrentUser}) => {
+  const userURL = "http://localhost:3001/users"
+
   const handleSaveGame = () => {
-    console.log("currentUser: ", currentUser)
-    console.log("answers: ", answers)
+    //check if currentUser already has this puzzle saved
+    if (currentUser.saved.find((puzzle) => puzzle.id === currentUser.activePuzzle.puzzle.id)) {
+      currentUser.saved = currentUser.saved.filter(puzzle => puzzle.id !== currentUser.activePuzzle.puzzle.id)
+    }
 
-    //update localStorage > currentUser > 
+    //push current puzzle to "saved"
+    currentUser.saved.unshift(currentUser.activePuzzle.puzzle)
 
-    //update localStorage currentUser[key] with currentUser[state]
-
-    //patch DB with currentUser id, to include updated answers
+    //patch DB with currentUser
+    fetch(`${userURL}/${currentUser.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(currentUser)
+    })
+    .then(res => res.json())
+    .then(data => {
+      postCurrentUser(currentUser)
+      localStorage.setItem('currentUser', JSON.stringify(data))
+    })
   }
 
   const checkSolution = () => {
