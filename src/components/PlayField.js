@@ -7,18 +7,32 @@ const PlayField = ({ currentUser, setCurrentUser}) => {
   const answers = currentUser.activePuzzle.answers;
   const solution = currentUser.activePuzzle.solution;
 
-  const handleInput = (e) => {
-    const updated = answers.map((item, idx) => {
-      if (e.target.id === idx) return e.target.value;
-      else return item;
-    })
-    setCurrentUser({
-      ...currentUser,
-      activePuzzle: {
+  let updated = [...answers]
 
-      }
+  const numReg = /[0-9]/;
+
+  const handleInput = (e) => {
+    if (!e.target.value.match(numReg)) {
+      e.target.value = ""
+      return
+    }
+    if (+e.target.value > 9) {
+      e.target.value = e.target.value.slice(0, 1)
+    }
+    
+    updated = updated.map((item, idx) => {
+    if (+e.target.id === idx) return +e.target.value;
+    else return item;
     })
-    console.log(answers)
+    
+    const updatedUser = {
+      ...currentUser
+    }
+
+    updatedUser.activePuzzle.answers = updated
+
+    setCurrentUser({...updatedUser})
+    console.log(updatedUser)
   }
   
   const displayPuzzle = (answers) => {

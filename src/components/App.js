@@ -9,7 +9,6 @@ const currentUserURL = "http://localhost:3001/currentUser"
 const allPuzzlesURL = "http://localhost:3001/puzzles"
 
 function App() {
-  
   const [showApp, setShowApp] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [allPuzzles, setAllPuzzles] = useState([]);
@@ -59,6 +58,10 @@ function App() {
     postCurrentUser(data) 
   }
 
+  const updateCurrentUser = (obj) => {
+    setCurrentUser(obj)
+  }
+
   const handleLoginSuccess = (data) => {
     setShowApp(true);
     handleSetCurrentUser(data)
@@ -92,7 +95,7 @@ function App() {
   return (
     <>
       {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
-      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} currentUser={currentUser} setCurrentUser={updateCurrentUser}/>
     </>
   );
 }
