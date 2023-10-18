@@ -41,6 +41,7 @@ function App() {
         throw (response.statusText)
       }
     })
+    .then(data =>  setCurrentUser(data))
     .catch(err => alert(err))
   }
 

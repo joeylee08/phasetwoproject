@@ -36,6 +36,7 @@ const PlayField = ({ currentUser, setCurrentUser, postCurrentUser}) => {
   }
   
   const displayPuzzle = (answers) => {
+    console.log(currentUser)
     const tdArray = Array.from(document.querySelectorAll("td"));
 
     tdArray.forEach((item, idx) => {
@@ -55,7 +56,7 @@ const PlayField = ({ currentUser, setCurrentUser, postCurrentUser}) => {
 
   useEffect(() => {
     displayPuzzle(answers)
-  }, [])
+  }, [currentUser.saved])
   
   return (
     <div id="playfield">
