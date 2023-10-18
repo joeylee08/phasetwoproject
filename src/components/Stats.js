@@ -1,6 +1,7 @@
 const Stats = ({currentUser, answers}) => {
   const handleSaveGame = () => {
-    //make answers back to 2d array ?
+    console.log("currentUser: ", currentUser)
+    console.log("answers: ", answers)
 
     //update localStorage > currentUser > 
 
@@ -8,9 +9,14 @@ const Stats = ({currentUser, answers}) => {
 
     //patch DB with currentUser id, to include updated answers
   }
+
+  const checkSolution = () => {
+    console.log(String(currentUser.activePuzzle.answers) === String(currentUser.activePuzzle.solution))
+  }
   
   return (
     <div id="stats" className='playfield-elements'>
+      <button id="checkSolution" onClick={checkSolution}>Submit</button>
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
     </div>
   )
