@@ -1,13 +1,13 @@
 import GameRow from './GameRow';
 import { v4 as uuid } from "uuid";
 
-const GameBoard = ({ answers, handleInput }) => {
+const GameBoard = ({ answers, handleInput, handleSetInputValue, inputValue }) => {
 
   const displayPuzzle = (answers) => {
     let arr = [];
     for (let i = 0; i < 9; i++) {
       let answersArr = answers.slice((i * 9), ((i + 1) * 9))
-      arr.push(<GameRow key={uuid()} iCount={i} answersArr={answersArr} handleInput={handleInput} />)
+      arr.push(<GameRow key={uuid()} iCount={i} answersArr={answersArr} handleSetInputValue={handleSetInputValue} inputvalue={inputValue} handleInput={handleInput} />)
     }
     return arr;
   }

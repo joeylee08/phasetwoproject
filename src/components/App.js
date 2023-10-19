@@ -37,12 +37,12 @@ function App() {
   }
 
   const handleSetCurrentUser = (userObj) => {
-    const randomPuzzle = allPuzzles[Math.floor(Math.random() * 250) + 1]
+    const randomPuzzle = allPuzzles[Math.floor(Math.random() * 99) + 1]
 
     userObj.activePuzzle.puzzle = userObj.saved[0] || randomPuzzle
-    userObj.activePuzzle.answers = userObj.activePuzzle.answers || userObj.activePuzzle.puzzle.answers
+    userObj.activePuzzle.answers = userObj.activePuzzle.answers.length === 0 ? userObj.activePuzzle.puzzle.start : userObj.activePuzzle.answers
     userObj.activePuzzle.solution = userObj.activePuzzle.puzzle.solution
-    
+  
     localStorage.setItem('isUserActive', true)
     localStorage.setItem('currentUser', JSON.stringify(userObj))
 
@@ -50,8 +50,8 @@ function App() {
   }
 
   const handleLoginSuccess = (userObj) => {
-    setShowApp(true);
     handleSetCurrentUser(userObj)
+    setShowApp(true);
   };
 
   const handleContinueAsGuest = () => {
@@ -61,15 +61,15 @@ function App() {
       else throw (response.statusText)
     })
     .then(userObj => {
-      setShowApp(true);
       handleSetCurrentUser(userObj);
+      setShowApp(true);
     })
     .catch(err => alert(err))
   };
 
   const handleLogout = () => {
-    setShowApp(false);
     putCurrentUser({id: 0})
+    setShowApp(false);
 
     localStorage.setItem('isUserActive', false)
     localStorage.setItem('currentUser', {id: 0})

@@ -3,20 +3,32 @@ import SideBar from "./SideBar"
 import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
-const PlayField = ({ currentUser, setCurrentUser, postCurrentUser}) => {
-  const answers = currentUser.activePuzzle.answers;
+import {useState} from 'react'
 
-  let updated = [...answers]
+const PlayField = () => {
+  const [inputValue, setInputValue] = useState()
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+
+  // console.log(currentUser.activePuzzle.answers)
+  // console.log(currentUser.activePuzzle.puzzle.start)
+
+  let updated = [...currentUser.activePuzzle.answers]
 
   const numReg = /[0-9]/;
 
+  const handleSetInputValue = (value) => {
+    setInputValue(value)
+  }
+
   const handleInput = (e) => {
+    
     if (!e.target.value.match(numReg)) {
-      e.target.value = ""
+      setInputValue("")
       return
     }
     if (+e.target.value > 9) {
-      e.target.value = e.target.value.slice(0, 1)
+      setInputValue(+e.target.value.slice(0, 1))
+      return
     }
 
     updated = updated.map((item, idx) => {
@@ -27,18 +39,18 @@ const PlayField = ({ currentUser, setCurrentUser, postCurrentUser}) => {
     const updatedUser = {
       ...currentUser
     }
-
+    
     updatedUser.activePuzzle.answers = updated
 
-    // setCurrentUser({...updatedUser})
-    console.log(updatedUser)
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser))
+    console.log(updated)
   }
   
   return (
     <div id="playfield">
       <SideBar />
-      <Stats currentUser={currentUser} answers={answers} postCurrentUser={postCurrentUser}/>
-      <GameBoard answers={answers} handleInput={handleInput} />
+      <Stats  />
+      <GameBoard  handleInput={handleInput} answers={updated} handleSetInputValue={handleSetInputValue} inputValue={inputValue}/>
     </div>
   )
 }

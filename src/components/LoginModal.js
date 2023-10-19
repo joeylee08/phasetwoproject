@@ -27,13 +27,14 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
     }
     try {
       const response = await fetch(`${URL}${urlEnd}`, configObj);
-      const data = await response.json();
+      const userObj = await response.json();
 
-      if (response.ok) onLoginSuccess(data);
+      if (response.ok) onLoginSuccess(userObj);
       else {
         setError('An error occurred during login/registration.');
         console.error(error)
       }
+      
     } catch(err) {
       setError('An error occurred during login/registration.');
       console.error('Error during fetch:', error);
