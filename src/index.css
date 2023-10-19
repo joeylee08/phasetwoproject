@@ -189,6 +189,10 @@ div#playfield .playfield-elements {
   height: 50px;
 }
 
+div#playfield #sudoku-table td.red {
+  border: 1px solid red;
+}
+
 /* ========= Body ========= */
 
 #error h1 {

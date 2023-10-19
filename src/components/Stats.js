@@ -5,7 +5,7 @@ const Stats = () => {
     
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
     const currentPuzzle = currentUser.activePuzzle.puzzle
-    console.log(currentPuzzle)
+   
     if (currentUser.saved.find(item => item.id === currentPuzzle.id)) {
       currentUser.saved = currentUser.saved.filter(item => item.id !== currentPuzzle.id)
     }
@@ -28,10 +28,24 @@ const Stats = () => {
 
   const checkSolution = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-    if (String(currentUser.activePuzzle.answers) !== String(currentUser.activePuzzle.solution)) {
-      alert("Sorry, you haven't quite solved it.")
+    const solution = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.solution
+    const answers = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.answers
+
+    if (String(answers) !== String(solution)) {
+      const allTds = Array.from(document.querySelectorAll('td'))
+      
+      for (let i = 0; i <= 80; i++) {
+        if (answers[i] !== solution[i]) {
+          allTds[i].classList.add('red')
+        } else {
+          allTds[i].classList.remove('red')
+        }
+      }
+
     } else {
-      alert("Congratulations! You solved it!")
+      const allTds = Array.from(document.querySelectorAll('td'))
+      allTds.forEach(item => item.classList.remove('red'))
+      
     }
   }
   
