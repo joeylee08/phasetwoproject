@@ -2,12 +2,12 @@ import SideBar from "./SideBar"
 import Stats from "./Stats"
 import GameBoard from "./GameBoard"
 
-const PlayField = () => {
+const PlayField = ({handleSetCurrentUser}) => {
   
   return (
     <div id="playfield">
       <SideBar />
-      <Stats />
+      <Stats handleSetCurrentUser={handleSetCurrentUser}/>
       <GameBoard />
     </div>
   )

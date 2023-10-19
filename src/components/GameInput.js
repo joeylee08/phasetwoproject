@@ -28,8 +28,6 @@ const GameInput = ({ cellId, answers }) => {
         updatedUser.activePuzzle.answers = updated
     
         localStorage.setItem("currentUser", JSON.stringify(updatedUser))
-        // console.log(JSON.parse(localStorage.getItem('currentUser')).activePuzzle.answers)
-        // console.log(JSON.parse(localStorage.getItem("currentUser")))
       }
 
     return (
