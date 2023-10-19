@@ -1,8 +1,10 @@
+import {useState} from 'react'
+
 const Stats = () => {
   const userURL = "http://localhost:3001/users"
+  const [showStar, setShowStar] = useState(false)
 
   const handleSaveGame = () => {
-    
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
     const currentPuzzle = currentUser.activePuzzle.puzzle
    
@@ -45,7 +47,8 @@ const Stats = () => {
     } else {
       const allTds = Array.from(document.querySelectorAll('td'))
       allTds.forEach(item => item.classList.remove('red'))
-      
+      setShowStar(true)
+      setTimeout(() => setShowStar(false), 3000)
     }
   }
   
@@ -53,6 +56,7 @@ const Stats = () => {
     <div id="stats" className='playfield-elements'>
       <button id="checkSolution" onClick={checkSolution}>Submit</button>
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
+      <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
     </div>
   )
 }

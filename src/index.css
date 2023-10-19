@@ -212,6 +212,12 @@ div#playfield #sudoku-table td.red {
 
 }
 
+#goldstar {
+  width: 600px;
+  position: absolute;
+  margin: auto;
+}
+
 /* ========= Instructions ========= */
 
 article {
