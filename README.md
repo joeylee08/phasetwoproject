@@ -45,14 +45,23 @@
 - Run `npm start`.
 - It should run on `http://localhost:3000` take you to a page that looks like this:
 - ==============================================
-    <!-- ![Home page of app.](./assets/index.png "Home Page") -->
+    ![Login page of app.](./assets/login.png "Login Page")
 - ==============================================
 
 
 ## Using the Application
 
-- 
-
+- The user can sign in or create an account by inputting their email and password of choice, or stored password in they already have an account, and either clicking "Create Account" or "Login"
+- The user can also click "Continue as Guest" to play without creating an account.
+- Once the login process is complete, the will be taken to the "Home" page which will look like this:
+- ==============================================
+    ![Home page of app.](./assets/home.png "Home Page")
+- ==============================================
+- The app will load the user's last saved puzzle or randomly load one if one is not saved.
+- If the user does not know how to play Sudoku, they can click on "Instructions" and they will be taken to a page of basic Sudoku instructions provided by `Sudoku.com`. the page looks like this:
+- ==============================================
+    ![Instructions page of app.](./assets/instructions.png "Instructions Page")
+- ==============================================
 
 ## Optional Features
 

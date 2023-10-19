@@ -12,6 +12,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+#root {
+  overflow-y: auto;
+  height: 100vh;
 }
 
 code {
@@ -32,6 +38,11 @@ header {
   border-radius: 10px;
   margin: 0 auto;
   position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
 }
 
 nav.hidden {
@@ -90,7 +101,7 @@ nav.hidden {
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(5, 20%);
   margin: auto;
-  height: 765px;
+  height: 725px;
   background-color: #d0dbf8;
   border: 10px solid #1e58ff;
   border-radius: 10px;
@@ -174,7 +185,7 @@ div#playfield .playfield-elements {
   border: 4px solid black;
   border-radius: 7px;
   background-color: black;
-  margin: 2.3% auto;
+  margin: 1.9% auto;
 }
 
 #sudoku-table td {
@@ -198,8 +209,8 @@ div#playfield .playfield-elements {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 /* #sudoku-table td.red {
@@ -311,7 +322,6 @@ article {
 @media (min-width: 992px) {
   #logout {
     margin-left: auto;
-    float: right;
   }
 }
 
