@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 const NavBar = ({ onLogout }) => {
-  const links = ["Home", "Instructions", "Leader Board", "Your Puzzles", "Sudoku Store"];
+  const links = ["Home", "Instructions", "Leader Board", "Your Puzzles"];
 
   const mappedLinks = links.map(link => (
     <NavLink
