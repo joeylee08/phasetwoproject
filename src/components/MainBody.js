@@ -1,10 +1,10 @@
 import PlayField from "./PlayField"
 
-const MainBody = ({ currentUser, setCurrentUser, postCurrentUser }) => {
+const MainBody = () => {
     return (
         <>
-            <h1>Main Body</h1>
-            <PlayField currentUser={currentUser} setCurrentUser={setCurrentUser} postCurrentUser={postCurrentUser} />
+          <div><h1 id="mainTitle">Flatiron Sudoku Challenge</h1></div>
+          <PlayField />
         </>
     )
 }

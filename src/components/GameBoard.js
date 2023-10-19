@@ -1,19 +1,24 @@
-import GameRow from './GameRow';
-import { v4 as uuid } from "uuid";
+import GameCell from './GameCell';
 
-const GameBoard = ({ answers, handleInput }) => {
+const GameBoard = () => {
+  const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  const answers = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.answers
 
-  const displayPuzzle = (answers) => {
-    let arr = [];
-    for (let i = 0; i < 9; i++) {
-      let answersArr = answers.slice((i * 9), ((i + 1) * 9))
-      arr.push(<GameRow key={uuid()} iCount={i} answersArr={answersArr} handleInput={handleInput} />)
-    }
-    return arr;
-  }
-
-  const tableRows = displayPuzzle(answers);
-  
+  const tableRows = dummyArr.map((item, idx) => {
+    return (
+      <tr key={idx} id={item}>
+        <GameCell cellId={(9 * idx) + 0} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 1} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 2} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 3} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 4} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 5} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 6} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 7} answers={answers}/>
+        <GameCell cellId={(9 * idx) + 8} answers={answers}/>
+      </tr>
+    )
+  })
   return (
     <div id="gameboard" className='playfield-elements'>
       <div>

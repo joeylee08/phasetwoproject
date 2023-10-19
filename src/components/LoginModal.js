@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginModal.css';
+
 const URL = "http://localhost:3001/users/"
 
 function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
@@ -10,13 +11,12 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email.trim()) {
-      return alert("Please enter a valid email")
-    }
-    if (!password.trim()) {
-      return alert("Please enter a valid password")
-    }
+
+    if (!email.trim()) return alert("Please enter a valid email")
+    if (!password.trim()) return alert("Please enter a valid password")
+    
     const urlEnd = isLogin ? email : '';
+
     const configObj = isLogin ? {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -27,16 +27,15 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
     }
     try {
       const response = await fetch(`${URL}${urlEnd}`, configObj);
+      const userObj = await response.json();
 
-      const data = await response.json();
-
-      if (response.ok) {
-        onLoginSuccess(data);
-        console.log("data", data);
-      } else {
-        setError(data.message || 'An error occurred during login/registration.');
+      if (response.ok) onLoginSuccess(userObj);
+      else {
+        setError('An error occurred during login/registration.');
+        console.error(error)
       }
-    } catch (error) {
+      
+    } catch(err) {
       setError('An error occurred during login/registration.');
       console.error('Error during fetch:', error);
     }
