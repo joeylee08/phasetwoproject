@@ -45,14 +45,20 @@
 - Run `npm start`.
 - It should run on `http://localhost:3000` take you to a page that looks like this:
 - ==============================================
-    <!-- ![Home page of app.](./assets/index.png "Home Page") -->
+    ![Login page of app.](./assets/login.png "Login Page")
 - ==============================================
 
 
 ## Using the Application
 
 - 
-
+- ==============================================
+    <!-- ![Home page of app.](./assets/index.png "Home Page") -->
+- ==============================================
+- 
+- ==============================================
+    <!-- ![Home page of app.](./assets/index.png "Home Page") -->
+- ==============================================
 
 ## Optional Features
 
