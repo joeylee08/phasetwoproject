@@ -1,9 +1,11 @@
 import GameInput from "./GameInput";
 
-const GameCell = ({ answers, id }) => {
-    return (
-        <td>{answers[id] ? answers[id] : <GameInput/>}</td>
-    )
+const GameCell = ({ answers, cellId }) => {
+  const initial = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.puzzle.start;
+    
+  return (
+    <td id={cellId}>{initial[cellId] ? initial[cellId] : <GameInput cellId={cellId} answers={answers}/>}</td>
+  )
 }
 
 export default GameCell;
