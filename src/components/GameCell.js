@@ -1,9 +1,8 @@
 import GameInput from "./GameInput";
 
 const GameCell = ({ answers, id }) => {
-    console.log(id)
     return (
-        <td><GameInput /></td>
+        <td>{answers[id] ? answers[id] : <GameInput/>}</td>
     )
 }
 
