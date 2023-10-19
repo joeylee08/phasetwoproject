@@ -2,24 +2,16 @@ const Stats = () => {
   const userURL = "http://localhost:3001/users"
 
   const handleSaveGame = () => {
+    
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
     const currentPuzzle = currentUser.activePuzzle.puzzle
-    const currentAnswers = currentUser.activePuzzle.answers
-
-    //check if currentUser already has this puzzle saved
+    console.log(currentPuzzle)
     if (currentUser.saved.find(item => item.id === currentPuzzle.id)) {
       currentUser.saved = currentUser.saved.filter(item => item.id !== currentPuzzle.id)
     }
 
-    //add saved answers to puzzle
-    const savedWithAnswers = {
-      ...currentPuzzle,
-      savedAnswers: currentAnswers
-    }
-    //push current puzzle to "saved"
-    currentUser.saved.unshift(savedWithAnswers)
+    currentUser.saved.unshift(currentPuzzle)
 
-    //patch DB with currentUser
     fetch(`${userURL}/${currentUser.id}`, {
       method: "PUT",
       headers: {
@@ -36,7 +28,11 @@ const Stats = () => {
 
   const checkSolution = () => {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-    console.log(String(currentUser.activePuzzle.answers) === String(currentUser.activePuzzle.solution))
+    if (String(currentUser.activePuzzle.answers) !== String(currentUser.activePuzzle.solution)) {
+      alert("Sorry, you haven't quite solved it.")
+    } else {
+      alert("Congratulations! You solved it!")
+    }
   }
   
   return (
