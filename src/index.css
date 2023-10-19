@@ -212,6 +212,13 @@ div#playfield #sudoku-table td.red {
 
 /* ========= Body ========= */
 
+#mainTitle {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 1rem auto 1rem auto;
+}
+
 #error h1 {
   margin: 0;
 }

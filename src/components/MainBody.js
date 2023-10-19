@@ -3,8 +3,8 @@ import PlayField from "./PlayField"
 const MainBody = () => {
     return (
         <>
-            <h1>Main Body</h1>
-            <PlayField />
+          <div><h1 id="mainTitle">Flatiron Sudoku Challenge</h1></div>
+          <PlayField />
         </>
     )
 }
