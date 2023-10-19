@@ -19,7 +19,7 @@ const NavBar = ({ onLogout }) => {
     <header>
       <nav>
         {mappedLinks}
-        <button id="logout" onClick={onLogout} style={{ marginLeft: 'auto' }}>Logout</button>
+        <button id="logout" onClick={onLogout}>Logout</button>
       </nav>
     </header>
   );
