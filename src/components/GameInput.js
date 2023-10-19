@@ -7,7 +7,6 @@ const GameInput = ({ cellId, answers }) => {
     const numReg = /[1-9]/;
 
     const handleInput = (e) => {
-        console.log(typeof e.target.value)
         if (!e.target.value.match(numReg) || e.target.value === "") {
           setInputValue("")
         } else if (+e.target.value > 9) {
@@ -28,8 +27,6 @@ const GameInput = ({ cellId, answers }) => {
         updatedUser.activePuzzle.answers = updated
     
         localStorage.setItem("currentUser", JSON.stringify(updatedUser))
-        // console.log(JSON.parse(localStorage.getItem('currentUser')).activePuzzle.answers)
-        // console.log(JSON.parse(localStorage.getItem("currentUser")))
       }
 
     return (

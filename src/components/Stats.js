@@ -1,13 +1,14 @@
 import {useState} from 'react'
 
-const Stats = () => {
+const Stats = ({handleSetCurrentUser}) => {
   const userURL = "http://localhost:3001/users"
   const [showStar, setShowStar] = useState(false)
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
   const handleSaveGame = () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    currentUser = JSON.parse(localStorage.getItem("currentUser"))
     const currentPuzzle = currentUser.activePuzzle.puzzle
-   
+    
     if (currentUser.saved.find(item => item.id === currentPuzzle.id)) {
       currentUser.saved = currentUser.saved.filter(item => item.id !== currentPuzzle.id)
     }
@@ -26,6 +27,7 @@ const Stats = () => {
     .then(userData => {
       localStorage.setItem('currentUser', JSON.stringify(userData))
     })
+    console.log(currentUser)
   }
 
   const checkSolution = () => {
@@ -50,14 +52,23 @@ const Stats = () => {
       setTimeout(() => setShowStar(false), 3000)
     }
   }
+
+  const reset = () => {
+    console.log("reset")
+  }
+  
+  const getNewPuzzle = (newPuzz) => {
+    handleSetCurrentUser(currentUser, newPuzz)
+  }
   
   return (
     <div id="stats" className='playfield-elements'>
       <button id="checkSolution" onClick={checkSolution}>Submit</button>
-      {/* <button id="reset" onClick={reset}>Reset</button>
-      <button id="newPuzzle" onClick={getNewPuzzle}>New Puzzle</button> */}
+      <button id="reset" onClick={reset}>Reset</button>
+      <button id="newPuzzle" onClick={() => getNewPuzzle(true)}>New Puzzle</button>
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
-      <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
+      <img src="./goldstar2.jpg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
+      {/* <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/> */}
     </div>
   )
 }

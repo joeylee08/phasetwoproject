@@ -15,6 +15,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+  
     if (localStorage.getItem('isUserActive') === 'true') setShowApp(true)
 
     fetch(allPuzzlesURL)
@@ -36,17 +37,24 @@ function App() {
     .catch(err => alert("Failed to update current user."))
   }
 
-  const handleSetCurrentUser = (userObj) => {
+  const handleSetCurrentUser = (userObj, newPuzz = false) => {
     const randomPuzzle = allPuzzles[Math.floor(Math.random() * 99) + 1]
 
-    userObj.activePuzzle.puzzle = userObj.saved[0] || randomPuzzle
-    userObj.activePuzzle.answers = userObj.activePuzzle.answers.length === 0 ? userObj.activePuzzle.puzzle.start : userObj.activePuzzle.answers
+    if (!newPuzz) {
+      userObj.activePuzzle.puzzle = userObj.saved[0] || randomPuzzle
+      userObj.activePuzzle.answers = userObj.activePuzzle.answers.length === 0 ? userObj.activePuzzle.puzzle.start : userObj.activePuzzle.answers
+    } else {
+      userObj.activePuzzle.puzzle = randomPuzzle
+      userObj.activePuzzle.answers = userObj.activePuzzle.puzzle.start
+    }
+
     userObj.activePuzzle.solution = userObj.activePuzzle.puzzle.solution
-  
+    console.log('user:' , userObj)
     localStorage.setItem('isUserActive', true)
     localStorage.setItem('currentUser', JSON.stringify(userObj))
 
     putCurrentUser(userObj)
+    navigate("/")
   }
 
   const handleLoginSuccess = (userObj) => {
@@ -80,7 +88,7 @@ function App() {
   return (
     <>
       {showApp ? <NavBar onLogout={handleLogout} /> : <HiddenNavBar />}
-      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} allPuzzles={allPuzzles} putCurrentUser={putCurrentUser}/>
+      <Router showApp={showApp} onLoginSuccess={handleLoginSuccess} onContinueAsGuest={handleContinueAsGuest} allPuzzles={allPuzzles} putCurrentUser={putCurrentUser} handleSetCurrentUser={handleSetCurrentUser}/>
     </>
   );
 }

@@ -8,7 +8,7 @@ import MainBody from "./MainBody";
 import LoginModal from "./LoginModal";
 import Error from "./Error";
 
-function Router({ showApp, onContinueAsGuest, onLoginSuccess }) {
+function Router({ showApp, onContinueAsGuest, onLoginSuccess, handleSetCurrentUser}) {
     const routes =  ( 
         <>
             <Route path="/about" element={<About />} />,
@@ -21,7 +21,7 @@ function Router({ showApp, onContinueAsGuest, onLoginSuccess }) {
   return (
     <>
       <Routes>
-        <Route path="/" element={showApp ? <MainBody /> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
+        <Route path="/" element={showApp ? <MainBody handleSetCurrentUser={handleSetCurrentUser}/> : < LoginModal onLoginSuccess={onLoginSuccess} onContinueAsGuest={onContinueAsGuest} />} />
         {showApp ? routes : null}
         <Route path="/:error" element={<Error />} />
       </Routes>
