@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
 const GameInput = ({ cellId, answers }) => {
     const initialValue = answers[cellId] ? answers[cellId] : ""

@@ -207,6 +207,7 @@ div#playfield .playfield-elements {
 
 div#playfield #sudoku-table td.red {
   border: 1px solid red;
+  background-color: #ffa9a9;
 }
 
 /* ========= Body ========= */

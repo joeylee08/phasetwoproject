@@ -55,8 +55,8 @@ const Stats = () => {
   return (
     <div id="stats" className='playfield-elements'>
       <button id="checkSolution" onClick={checkSolution}>Submit</button>
-      <button id="reset" onClick={checkSolution}>Reset</button>
-      <button id="newPuzzle" onClick={checkSolution}>New Puzzle</button>
+      {/* <button id="reset" onClick={reset}>Reset</button>
+      <button id="newPuzzle" onClick={getNewPuzzle}>New Puzzle</button> */}
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
       <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
     </div>

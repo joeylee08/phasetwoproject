@@ -10,7 +10,7 @@ const PlayField = () => {
   return (
     <div id="playfield">
       <SideBar />
-      <Stats  />
+      <Stats />
       <GameBoard />
     </div>
   )
