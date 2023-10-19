@@ -16,6 +16,11 @@ body {
   overflow: hidden;
 }
 
+#root {
+  overflow-y: auto;
+  height: 100vh;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
