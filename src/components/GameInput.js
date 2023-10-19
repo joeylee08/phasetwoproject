@@ -7,10 +7,11 @@ const GameInput = ({ cellId, answers }) => {
     const numReg = /[1-9]/;
 
     const handleInput = (e) => {
-        if (!e.target.value.match(numReg) || e.target.value === "") {
+        console.log(typeof e.target.value)
+        if (!e.target.value.match(numReg) || e.target.value === "" || isNaN(e.target.value)) {
           setInputValue("")
-        } else if (+e.target.value > 9) {
-          setInputValue(+e.target.value.slice(0, 1))
+        } else if (+e.target.value.length > 1) {
+          setInputValue(+e.target.value.slice(1))
         } else {
           setInputValue(e.target.value)
         }

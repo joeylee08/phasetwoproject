@@ -1,12 +1,12 @@
 html {
   padding: 2rem;
-  background-color: #cc97fb;
+  background-color: #333435f5;
   
 }
 
 body {
   /* width: 95%; */
-  background-color: #cc97fb;
+  background-color: transparent;
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -20,12 +20,16 @@ code {
     monospace;
 }
 
+h1 {
+  color: #d0dbf8;
+}
+
 /* ========= Header ========= */
 
 header {
   padding: 25px;
-  background-color: #ffc99d;
-  border: 10px solid #800080;
+  background-color: #d0dbf8;
+  border: 10px solid #1e58ff;
   border-radius: 10px;
   /* width: 92%; */
   margin: 0 auto;
@@ -44,7 +48,7 @@ nav.hidden {
   text-decoration: none;
   font-weight: bold;
   margin: 0 10px;
-  color: #800080;
+  color: #1e58ff;
 }
 
 .navLink:hover {
@@ -63,17 +67,13 @@ nav.hidden {
   gap: 20px;
 }
 
-#logout, #saveGame, #checkSolution, #reset, #newPuzzle {
-  border: 5px solid #800080;
-  background-color: #800080;
+#logout, #saveGame, #checkSolution {
+  border: 5px solid #1e58ff;
+  background-color: #1e58ff;
   border-radius: 5px;
-  color: #ffc99d;
+  color: #d0dbf8;
   font-weight: bold;
   width: 100px;
-}
-
-#logout {
-  float: right;
 }
 
 #logout:hover {
@@ -93,15 +93,13 @@ nav.hidden {
   margin: auto;
   /* width: 95%; */
   height: 765px;
-  background-color: #ffc99d;
-  border: 10px solid #800080;
+  background-color: #d0dbf8;
+  border: 10px solid #1e58ff;
   border-radius: 10px;
 }
 
 div#playfield .playfield-elements {
-  border: 2px solid #613175;
-  /* display: flex;
-  justify-content: center; */
+  border: 2px solid #1e58ff;
 }
 
 #sidebar {
@@ -113,7 +111,7 @@ div#playfield .playfield-elements {
 }
 
 #sidebar li {
-  color: #800080;
+  color: #1e58ff;
   list-style: none;
   margin: 15px 0;
   font-weight: bold;
@@ -142,21 +140,7 @@ div#playfield .playfield-elements {
   margin-left: 25px;
 }
 
-#reset {
-  position: absolute;
-  left: 27%;
-  top: 50%;
-  margin-left: 25px;
-}
-
-#newPuzzle {
-  position: absolute;
-  right: 27%;
-  top: 50%;
-  margin-left: 25px;
-}
-
-#saveGame:hover, #checkSolution:hover, #reset:hover, #newPuzzle:hover {
+#saveGame:hover, #checkSolution:hover {
   border: 5px solid #05a405;
   background-color: #05a405;
 }
@@ -181,7 +165,7 @@ div#playfield .playfield-elements {
 
 #sudoku-table td {
   border: .05em solid black;
-  background-color: #b280d6;
+  background-color: #1eb5ff;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
@@ -205,19 +189,12 @@ div#playfield .playfield-elements {
   height: 50px;
 }
 
-div#playfield #sudoku-table td.red {
-  border: 1px solid red;
-  background-color: #ffa9a9;
+#sudoku-table td.red {
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
 }
 
 /* ========= Body ========= */
-
-#mainTitle {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 1rem auto 1rem auto;
-}
 
 #error h1 {
   margin: 0;
@@ -236,21 +213,15 @@ div#playfield #sudoku-table td.red {
 
 }
 
-#goldstar {
-  width: 600px;
-  position: absolute;
-  margin: auto;
-}
-
 /* ========= Instructions ========= */
 
 article {
-  background-color: #ffc99d;
+  background-color: #d0dbf8;
   padding: 25px 50px;
   text-align: justify;
   margin: 25px;
   border-radius: 10px;
-  border: 10px solid #800080;
+  border: 10px solid #1e58ff;
 }
 
 #instructions, #leaders {
@@ -261,7 +232,7 @@ article {
 }
 
 #instructions p {
-  color: #800080;
+  color: #1e58ff;
   font-size: 21px;
   font-weight: 500;
 }
@@ -290,6 +261,13 @@ article {
   margin: 25px 0;
 }
 
+@media (min-width: 992px) {
+  #logout {
+    margin-left: auto;
+    float: right;
+  }
+}
+
 @media (max-width: 991px) {
   .sudoku-input {
     width: 35px;
@@ -304,9 +282,122 @@ article {
     font-size: 16px;
   }
   #sidebar li, .navLink {
-    font-size: 14px;
+    font-size: 11px;
   }
   #sidebar ul {
-    padding-left: 10px;
+    padding-left: 2px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 100px;
+    align-items: center;
+  }
+  .navLink {
+    margin: 0 5px;
+  }
+  header {
+    padding: 0;
+  }
+  #logout {
+    height: 27.5px;
+  }
+  #instructions, #leaders {
+    padding: 0;
+  }
+  article {
+    margin: 25px 0;
+  }
+}
+
+@media (max-width: 680px) {
+  #sudoku-table {
+    height: 300px;
+    width: 300px;
+  }
+  #sudoku-table td, #sudoku-table td input {
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+  } 
+}
+
+@media (max-width:550px) {
+  #sudoku-table {
+    height: 275px;
+    width: 275px;
+    margin: 5% auto;
+  }
+  #sudoku-table td {
+    font-size: 12px;
+    width: 15px;
+    height: 20px;
+  }
+
+  #sudoku-table td input {
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+  }
+  #playfield {
+    display: flex;
+    flex-direction: column;
+  }
+  #stats {
+    order: 1;
+    height: 50%;
+  }
+  #goldstar {
+    width: 600px;
+    position: absolute;
+    margin: auto;
+  }
+  #gameboard {
+    order: 2;
+  }
+  #sidebar {
+    order: 3;
+    text-align: center;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  article {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    padding: 2rem 0;
+  }
+  body {
+    width: 80%;
+    min-width: 300px;
+  }
+  #stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  #checkSolution, #saveGame {
+    position: relative;
+    margin: 0;
+    top: 0;
+  }
+  #logout, #saveGame, #checkSolution {
+    font-weight:300;
+    width: 93px;
+  }
+  .navLink {
+    width: 83px;
   }
 }
