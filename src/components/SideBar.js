@@ -6,7 +6,7 @@ const SideBar = () => {
   return (
     <div id="sidebar" className='playfield-elements'>
       <h3>Game Data</h3>
-      <ul>
+      <ul id='sidebar-list'>
         <li>User: {userInfo.username}</li>
         <li>Points: {userInfo.points}</li>
         <li>Puzzle ID: {userInfo.activePuzzle.puzzle.id}</li>

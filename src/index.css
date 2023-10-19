@@ -255,6 +255,11 @@ div#playfield .playfield-elements {
   border-top: 4px solid black;
 }
 
+#sidebar-list {
+  text-align: left;
+  margin-left: -1rem;
+}
+
 /* ========= Instructions ========= */
 
 article {
