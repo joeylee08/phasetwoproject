@@ -1,40 +1,35 @@
-import {useState} from 'react'
+import React, { useState } from 'react';
 
 const GameInput = ({ cellId, answers }) => {
-    const initialValue = answers[cellId] ? answers[cellId] : ""
-    const [inputValue, setInputValue] = useState(initialValue)
-
-    const numReg = /[1-9]/;
+    const initialValue = answers[cellId] ? answers[cellId] : "";
+    const [inputValue, setInputValue] = useState(initialValue);
 
     const handleInput = (e) => {
-        console.log(typeof e.target.value)
-        if (!e.target.value.match(numReg) || e.target.value === "" || isNaN(e.target.value)) {
-          setInputValue("")
-        } else if (+e.target.value.length > 1) {
-          setInputValue(+e.target.value.slice(1))
-        } else {
-          setInputValue(e.target.value)
-        }
+        const newValue = e.target.value;
 
-        let updated = [...JSON.parse(localStorage.getItem("currentUser")).activePuzzle.answers].map((item, idx) => {
-            if (+e.target.parentElement.id === idx) return +e.target.value
-            else return item;
-        })
-        
-        const updatedUser = {
-          ...JSON.parse(localStorage.getItem("currentUser"))
+        // Check if the value is a single digit number between 1 and 9
+        if (/^[1-9]$/.test(newValue) || newValue === "") {
+            setInputValue(newValue);
+
+            const updatedUser = {
+                ...JSON.parse(localStorage.getItem("currentUser")),
+            };
+
+            updatedUser.activePuzzle.answers[cellId] = newValue ? parseInt(newValue) : null;
+            localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+        } else {
+            setInputValue(""); // Reset the input value if it's invalid
         }
-        
-        updatedUser.activePuzzle.answers = updated
-    
-        localStorage.setItem("currentUser", JSON.stringify(updatedUser))
-      }
+    };
 
     return (
-        <>
-            <input className="sudoku-input" onInput={handleInput} value={inputValue}/>
-        </>
-    )
-}
+        <input
+            className="sudoku-input"
+            onInput={handleInput}
+            value={inputValue}
+            maxLength="1" // Limit the input length to 1
+        />
+    );
+};
 
 export default GameInput;
