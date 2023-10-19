@@ -63,7 +63,7 @@ nav.hidden {
   gap: 20px;
 }
 
-#logout, #saveGame, #checkSolution {
+#logout, #saveGame, #checkSolution, #reset, #newPuzzle {
   border: 5px solid #800080;
   background-color: #800080;
   border-radius: 5px;
@@ -100,6 +100,8 @@ nav.hidden {
 
 div#playfield .playfield-elements {
   border: 2px solid #613175;
+  /* display: flex;
+  justify-content: center; */
 }
 
 #sidebar {
@@ -140,7 +142,21 @@ div#playfield .playfield-elements {
   margin-left: 25px;
 }
 
-#saveGame:hover, #checkSolution:hover {
+#reset {
+  position: absolute;
+  left: 27%;
+  top: 50%;
+  margin-left: 25px;
+}
+
+#newPuzzle {
+  position: absolute;
+  right: 27%;
+  top: 50%;
+  margin-left: 25px;
+}
+
+#saveGame:hover, #checkSolution:hover, #reset:hover, #newPuzzle:hover {
   border: 5px solid #05a405;
   background-color: #05a405;
 }
