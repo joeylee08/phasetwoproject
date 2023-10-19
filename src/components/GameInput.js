@@ -4,15 +4,14 @@ const GameInput = ({ cellId, answers }) => {
     const initialValue = answers[cellId] ? answers[cellId] : ""
     const [inputValue, setInputValue] = useState(initialValue)
 
-    const numReg = /[0-9]/;
+    const numReg = /[1-9]/;
 
     const handleInput = (e) => {
+        console.log(typeof e.target.value)
         if (!e.target.value.match(numReg) || e.target.value === "") {
           setInputValue("")
-          return
         } else if (+e.target.value > 9) {
           setInputValue(+e.target.value.slice(0, 1))
-          return
         } else {
           setInputValue(e.target.value)
         }
@@ -29,7 +28,8 @@ const GameInput = ({ cellId, answers }) => {
         updatedUser.activePuzzle.answers = updated
     
         localStorage.setItem("currentUser", JSON.stringify(updatedUser))
-        console.log(JSON.parse(localStorage.getItem('currentUser')).activePuzzle.answers)
+        // console.log(JSON.parse(localStorage.getItem('currentUser')).activePuzzle.answers)
+        // console.log(JSON.parse(localStorage.getItem("currentUser")))
       }
 
     return (
