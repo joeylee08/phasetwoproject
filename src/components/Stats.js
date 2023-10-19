@@ -57,7 +57,8 @@ const Stats = () => {
       {/* <button id="reset" onClick={reset}>Reset</button>
       <button id="newPuzzle" onClick={getNewPuzzle}>New Puzzle</button> */}
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
-      <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
+      <img src="./goldstar2.jpg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
+      {/* <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/> */}
     </div>
   )
 }

@@ -15,6 +15,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    localStorage.clear()
     if (localStorage.getItem('isUserActive') === 'true') setShowApp(true)
 
     fetch(allPuzzlesURL)
