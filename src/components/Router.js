@@ -6,6 +6,7 @@ import SudokuStore from "./SudokuStore";
 import YourPuzzles from "./YourPuzzles";
 import MainBody from "./MainBody";
 import LoginModal from "./LoginModal";
+import Loading from "./Loading";
 import Error from "./Error";
 
 function Router({ showApp, onContinueAsGuest, onLoginSuccess, handleSetCurrentUser}) {
@@ -16,6 +17,8 @@ function Router({ showApp, onContinueAsGuest, onLoginSuccess, handleSetCurrentUs
             <Route path="/instructions" element={<Instructions />} />,
             <Route path="/your-puzzles" element={<YourPuzzles />} />,
             <Route path="/sudoku-store" element={<SudokuStore />} />
+            <Route path="/loading" element={<Loading/>} />
+            <Route path="/loading/:param" element={<Loading/>} />
         </>
     )
   return (

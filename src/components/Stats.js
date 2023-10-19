@@ -1,8 +1,9 @@
-import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const Stats = ({handleSetCurrentUser}) => {
   const userURL = "http://localhost:3001/users"
-  const [showStar, setShowStar] = useState(false)
+  const navigate = useNavigate()
+
   let currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
   const handleSaveGame = () => {
@@ -48,27 +49,27 @@ const Stats = ({handleSetCurrentUser}) => {
     } else {
       const allTds = Array.from(document.querySelectorAll('td'))
       allTds.forEach(item => item.classList.remove('red'))
-      setShowStar(true)
-      setTimeout(() => setShowStar(false), 3000)
+      navigate("/loading/photo")
     }
   }
 
-  const reset = () => {
-    console.log("reset")
+  const reset = (newPuzz, toReset) => {
+    handleSetCurrentUser(currentUser, newPuzz, toReset)
   }
   
-  const getNewPuzzle = (newPuzz) => {
-    handleSetCurrentUser(currentUser, newPuzz)
+  const getNewPuzzle = (newPuzz, toReset) => {
+    const allTds = Array.from(document.querySelectorAll('td'))
+    allTds.forEach(item => item.classList.remove('red'))
+
+    handleSetCurrentUser(currentUser, newPuzz, toReset)
   }
   
   return (
     <div id="stats" className='playfield-elements'>
       <button id="checkSolution" onClick={checkSolution}>Submit</button>
-      <button id="reset" onClick={reset}>Reset</button>
-      <button id="newPuzzle" onClick={() => getNewPuzzle(true)}>New Puzzle</button>
+      <button id="reset" onClick={() => reset(false, true)}>Reset</button>
+      <button id="newPuzzle" onClick={() => getNewPuzzle(true, false)}>New Puzzle</button>
       <button id="saveGame" onClick={handleSaveGame}>Save Game</button>
-      <img src="./goldstar2.jpg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/>
-      {/* <img src="./goldstar.jpeg" alt="goldstar" id="goldstar" className={showStar ? null : 'hidden'}/> */}
     </div>
   )
 }
