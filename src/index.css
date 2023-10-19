@@ -208,6 +208,14 @@ div#playfield .playfield-elements {
   background-color: #ff0000;
 }
 
+#sidebar h3 {
+  text-align: center;
+}
+
+#sidebar {
+  font-size: 1.2rem;
+}
+
 /* ========= Body ========= */
 
 #error h1 {
@@ -238,6 +246,10 @@ div#playfield .playfield-elements {
 #loadingText {
   text-align: center;
   margin-top: 5rem;
+}
+
+div#sidebar ul li span.dataTitle {
+  font-weight: bold;
 }
 
 /* ========= Instructions ========= */
@@ -306,13 +318,13 @@ article {
     margin: 12% auto 0;
   }
   #sudoku-table td {
-    font-size: 16px;
+    font-size: 1rem;
   }
   #sidebar li, .navLink {
-    font-size: 11px;
+    font-size: 1rem;
   }
   #sidebar ul {
-    padding-left: 2px;
+    padding-left: 2rem;
   }
   nav {
     display: flex;
@@ -344,10 +356,11 @@ article {
     width: 300px;
   }
   #sudoku-table td, #sudoku-table td input {
-    font-size: 14px;
+    font-size: 0.8rem;
     width: 25px;
     height: 25px;
   } 
+
 }
 
 @media (max-width:550px) {
