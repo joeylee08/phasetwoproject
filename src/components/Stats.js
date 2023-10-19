@@ -32,7 +32,7 @@ const Stats = ({handleSetCurrentUser}) => {
   }
 
   const checkSolution = () => {
-    navigate("/loading/photo")
+    // navigate("/loading/photo")
     const solution = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.solution
     const answers = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.answers
 
@@ -50,7 +50,7 @@ const Stats = ({handleSetCurrentUser}) => {
     } else {
       const allTds = Array.from(document.querySelectorAll('td'))
       allTds.forEach(item => item.classList.remove('red'))
-      // navigate("/loading/photo")
+      navigate("/loading/photo")
     }
   }
 

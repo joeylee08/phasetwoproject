@@ -4,7 +4,7 @@ const Loading = () => {
   const navigate = useNavigate()
   const param = useParams()
 
-  const ms = param.param === "photo" ? 2000 : 800
+  const ms = param.param === "photo" ? 2800 : 800
   setTimeout(() => navigate("/"), ms)
   console.log(param)
   return (
