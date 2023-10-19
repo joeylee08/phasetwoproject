@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-
 import About from "./About";
 import Instructions from "./Instructions";
 import LeaderBoard from "./LeaderBoard";
@@ -8,8 +7,6 @@ import YourPuzzles from "./YourPuzzles";
 import MainBody from "./MainBody";
 import LoginModal from "./LoginModal";
 import Error from "./Error";
-
-/* Look into Navigate component for alternate to null in conditional rendering - https://learning.flatironschool.com/courses/6844/pages/programmatic-navigation?module_item_id=607232 */
 
 function Router({ showApp, onContinueAsGuest, onLoginSuccess }) {
     const routes =  ( 
