@@ -29,7 +29,6 @@ const Stats = () => {
   }
 
   const checkSolution = () => {
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"))
     const solution = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.solution
     const answers = JSON.parse(localStorage.getItem("currentUser")).activePuzzle.answers
 
