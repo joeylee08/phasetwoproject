@@ -229,6 +229,19 @@ div#playfield .playfield-elements {
 
 }
 
+#goldstar {
+  display: block;
+  margin: auto;
+  margin-top: 5rem;
+  width: 500px;
+  z-index: 10;
+}
+
+#loadingText {
+  text-align: center;
+  margin-top: 5rem;
+}
+
 /* ========= Instructions ========= */
 
 article {
