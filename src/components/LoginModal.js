@@ -24,7 +24,9 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
       "password": password,
       "points": 0,
       "consumables": [],
-      "activePuzzle": {}
+      "activePuzzle": {},
+      "saved": [],
+      "completed": []
     }
 
     const configObj = isLogin ? {
