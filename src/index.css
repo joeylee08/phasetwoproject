@@ -375,7 +375,7 @@ article {
     height: 27.5px;
   }
   #instructions, #leaders {
-    padding: 0;
+    padding: 0 0 100px 0;
   }
   article {
     margin: 25px 0;
