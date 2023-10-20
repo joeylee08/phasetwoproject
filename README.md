@@ -97,8 +97,8 @@
 
 ## What I Learned
 
-- `Joseph`: 
-- `Michael`:
+- `Joseph`: Building this React Sudoku game was a great experience. I learned a lot about the nuances of state, props and some of the more common React Hooks. I also became very well-acquainted with localStorage and using GitHub to manage workflow and collaborate with others. This project was a great experience that taught me the importance of  communication, teamwork, and persisting through blocks. I was fortunate enough to work with a great group of bright and hard-working individuals who made this an incredibly meaningful experience.
+- `Michael`: I had a great time on this project. I learned some cool CSS features and algorithms that I was able to implement. The team was great and I hope I get to work with them again in the future.
 - `Brian`:  I learned about more about React Routing. I learned more about the hooks `useParams` and `useNavigate`. And I also had a great time working on the project with the team. Which also taught me more about the importance of good communication and supporting one another throughout the project: Keeping each other grounded and on-task during the successful moments, and lifted each other up during the not-so successful moments. Thank you Joseph, Michael, and the `Flatiron` community.
 
 
