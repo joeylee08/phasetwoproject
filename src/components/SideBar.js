@@ -7,10 +7,10 @@ const SideBar = () => {
     <div id="sidebar" className='playfield-elements'>
       <h3>Game Data</h3>
       <ul>
-        <li>User: {userInfo.username}</li>
-        <li>Points: {userInfo.points}</li>
-        <li>Puzzle ID: {userInfo.activePuzzle.puzzle.id}</li>
-        <li>Difficulty: {userInfo.activePuzzle.puzzle.difficulty}</li>
+        <li><span className='bold-text'>User: </span>{userInfo.username}</li>
+        <li><span className='bold-text'>Points: </span>{userInfo.points}</li>
+        <li><span className='bold-text'>Puzzle ID: </span>{userInfo.activePuzzle.puzzle.id}</li>
+        <li><span className='bold-text'>Difficulty: </span>{userInfo.activePuzzle.puzzle.difficulty}</li>
       </ul>
     </div>
   )

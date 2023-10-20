@@ -51,27 +51,36 @@
 
 ## Using the Application
 
-- The user can sign in or create an account by inputting their email and password of choice, or stored password in they already have an account, and either clicking "Create Account" or "Login"
-- The user can also click "Continue as Guest" to play without creating an account.
-- Once the login process is complete, the will be taken to the "Home" page which will look like this:
+- The user can sign in or create an account by inputting their email and password of choice, or stored password in they already have an account, and either clicking `Create Account` or `Login`
+- The user can also click `Continue as Guest` to play without creating an account.
+- Once the login process is complete, the will be taken to the `Home` page which will look like this:
 - ==============================================
     ![Home page of app.](./assets/home.png "Home Page")
 - ==============================================
 - The app will load the user's last saved puzzle or randomly load one if one is not saved.
-- If the user does not know how to play Sudoku, they can click on "Instructions" and they will be taken to a page of basic Sudoku instructions provided by `Sudoku.com`. the page looks like this:
+- If the user does not know how to play Sudoku, they can click on `Instructions` and they will be taken to a page of basic Sudoku instructions provided by `Sudoku.com`. the page looks like this:
 - ==============================================
     ![Instructions page of app.](./assets/instructions.png "Instructions Page")
+- ==============================================
+- If the user doesn't want to work on the puzzle, they can click `New Puzzle` and the app will load another random puzzle.
+- The user can also save the current puzzle on display to their personal stash of puzzles in the database by clicking `Save Game`.
+- There is also a `Leader Board` which keeps track of all of the users scores in the database.
+- ==============================================
+    ![Leader Board page of app.](./assets/lboard.png "Leader Board Page")
+- ==============================================
+- And finally there is `Your Puzzles` which is a collection of the puzzles the user saves in the database. The user can scroll through the list and click on any puzzle. The puzzle clicked will then be displayed on the page and the user can work on that puzzle.
+- ==============================================
+    ![Your Puzzles page of app.](./assets/ypuzzles.png "Your Puzzles Page")
 - ==============================================
 
 ## Optional Features
 
-- 
-- ==============================================
-    <!-- ![Home page of app.](./assets/dark-index.png "Home Page") -->
-- ==============================================
+- Unfortunately we were unable to complete any of the stretch goals we had originally planned.
 
 ## Potential Improvements
 
+- There are plans for consumable items to assist the user in solving puzzles, a timer for the puzzles that will affect the user's score, and a way to spend points on display customization and the previously mentioned consumables.
+- Definitely more CSS and styling upgrades.
 
 ## License
 
@@ -90,7 +99,7 @@
 
 - `Joseph`: 
 - `Michael`:
-- `Brian`:  Thank you Joseph, Michael, and the `Flatiron` community.
+- `Brian`:  I learned about more about React Routing. I learned more about the hooks `useParams` and `useNavigate`. And I also had a great time working on the project with the team. Which also taught me more about the importance of good communication and supporting one another throughout the project: Keeping each other grounded and on-task during the successful moments, and lifted each other up during the not-so successful moments. Thank you Joseph, Michael, and the `Flatiron` community.
 
 
 * [Back To Top](#table-3-phase-2-project)
