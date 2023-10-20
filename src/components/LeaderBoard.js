@@ -32,6 +32,8 @@ const LeaderBoard = () => {
     
 
     return (
+      <>
+        <br></br>
         <div style={styles.leaderBoard}>
             <h1 style={styles.title}>Leader Board</h1>
             <div style={styles.headers}>
@@ -41,6 +43,7 @@ const LeaderBoard = () => {
             </div>
             {mappedUsers}
         </div>
+      </>
     );
 };
 

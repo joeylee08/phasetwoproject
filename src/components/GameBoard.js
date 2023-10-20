@@ -1,4 +1,5 @@
 import GameCell from './GameCell';
+import {useEffect} from 'react'
 
 const GameBoard = () => {
   const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -19,6 +20,22 @@ const GameBoard = () => {
       </tr>
     )
   })
+
+  useEffect(() => {
+    const allCells = document.querySelectorAll('td')
+    allCells.forEach((cell)=> {
+      if (cell.id % 9 === 2 || cell.id % 9 === 5) {
+        cell.classList.add('border-right')
+      }
+      if (cell.id >= 27 && cell.id <= 35) {
+        cell.classList.add('border-top')
+      }
+      if (cell.id >= 54 && cell.id <= 62) {
+        cell.classList.add('border-top')
+      }
+    })
+  }, [GameBoard])
+  
   return (
     <div id="gameboard" className='playfield-elements'>
       <div>

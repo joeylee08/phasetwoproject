@@ -17,16 +17,27 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
     
     const urlEnd = isLogin ? email : '';
 
+    const newUser = {
+      "id": email,
+      "username": email.slice(0, email.indexOf("@")),
+      "email": email,
+      "password": password,
+      "points": 0,
+      "consumables": [],
+      "activePuzzle": {}
+    }
+
     const configObj = isLogin ? {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     } : {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(newUser),
     }
+
     try {
-      const response = await fetch(`${URL}${urlEnd}`, configObj);
+      const response = await fetch(`${URL}/${urlEnd}`, configObj);
       const userObj = await response.json();
 
       if (response.ok) onLoginSuccess(userObj);

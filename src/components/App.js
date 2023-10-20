@@ -14,6 +14,20 @@ function App() {
 
   const navigate = useNavigate();
 
+  const allCells = document.querySelectorAll('td')
+  
+  allCells.forEach((cell)=> {
+    if (cell.id % 9 === 2 || cell.id % 9 === 5) {
+      cell.classList.add('border-right')
+    }
+    if (cell.id >= 27 && cell.id <= 35) {
+      cell.classList.add('border-top')
+    }
+    if (cell.id >= 54 && cell.id <= 62) {
+      cell.classList.add('border-top')
+    }
+  })
+
   useEffect(() => {
   
     if (localStorage.getItem('isUserActive') === 'true') setShowApp(true)
@@ -38,6 +52,7 @@ function App() {
   }
 
   const handleSetCurrentUser = (userObj, newPuzz = false, toReset = false) => {
+    // console.log(userObj)
     const randomPuzzle = allPuzzles[Math.floor(Math.random() * 99) + 1]
 
     if (newPuzz) {
@@ -54,6 +69,7 @@ function App() {
 
     localStorage.setItem('isUserActive', true)
     localStorage.setItem('currentUser', JSON.stringify(userObj))
+    localStorage.setItem('clickCount', '1')
 
     putCurrentUser(userObj)
     navigate("/loading/loadMsg")

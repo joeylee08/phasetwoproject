@@ -6,6 +6,9 @@ const GameInput = ({ cellId, answers }) => {
 
     const handleInput = (e) => {
         const newValue = e.target.value;
+        const nextClick = +localStorage.getItem('clickCount') + 1
+        
+        localStorage.setItem('clickCount', nextClick)
 
         // Check if the value is a single digit number between 1 and 9
         if (/^[1-9]$/.test(newValue) || newValue === "") {

@@ -171,14 +171,13 @@ nav.hidden {
 #sudoku-table {
   height: 540px;
   width: 540px;
-  border: .3em solid black;
-  border-radius: 10px;
+  border: 4px solid black;
+  border-radius: 7px;
   background-color: black;
   margin: 1.9% auto;
 }
 
 #sudoku-table td {
-  border: .05em solid black;
   background-color: #1eb5ff;
   text-align: center;
   font-weight: bold;
@@ -187,13 +186,13 @@ nav.hidden {
   height: 40px;
 }
 
-#sudoku-table td.top {
+/* #sudoku-table td.top {
   border-top: .3em solid black;
 }
 
 #sudoku-table td.right {
   border-right: .3em solid black;
-}
+} */
 
 .sudoku-input {
   text-align: center;
