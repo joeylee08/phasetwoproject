@@ -38,6 +38,7 @@ function App() {
   }
 
   const handleSetCurrentUser = (userObj, newPuzz = false, toReset = false) => {
+    // console.log(userObj)
     const randomPuzzle = allPuzzles[Math.floor(Math.random() * 99) + 1]
 
     if (newPuzz) {
@@ -54,6 +55,7 @@ function App() {
 
     localStorage.setItem('isUserActive', true)
     localStorage.setItem('currentUser', JSON.stringify(userObj))
+    localStorage.setItem('clickCount', '1')
 
     putCurrentUser(userObj)
     navigate("/loading/loadMsg")
