@@ -5,8 +5,8 @@ import Router from './Router';
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
-const currentUserURL = "http://localhost:3001/currentUser"
-const allPuzzlesURL = "http://localhost:3001/puzzles"
+const currentUserURL = "http://localhost:3001/currentUser";
+const allPuzzlesURL = "http://localhost:3001/puzzles";
 
 function App() {
   const [showApp, setShowApp] = useState(false);
@@ -15,13 +15,12 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  
-    if (localStorage.getItem('isUserActive') === 'true') setShowApp(true)
+    if (localStorage.getItem('isUserActive') === 'true') setShowApp(true);
 
     fetch(allPuzzlesURL)
       .then(res => res.json())
-      .then(puzzles => setAllPuzzles(puzzles))
-  }, [])
+      .then(puzzles => setAllPuzzles(puzzles));
+  }, []);
 
   const putCurrentUser = (userObj) => {
     fetch(currentUserURL, {
@@ -32,35 +31,39 @@ function App() {
       body: JSON.stringify(userObj)
     })
     .then(response => {
-      if (!response.ok) throw response.statusText
+      if (!response.ok) throw response.statusText;
     })
-    .catch(err => alert("Failed to update current user."))
-  }
+    .catch(err => alert("Failed to update current user."));
+  };
 
   const handleSetCurrentUser = (userObj, newPuzz = false, toReset = false) => {
-    const randomPuzzle = allPuzzles[Math.floor(Math.random() * 99) + 1]
-
-    if (newPuzz) {
-      userObj.activePuzzle.puzzle = randomPuzzle
-      userObj.activePuzzle.answers = userObj.activePuzzle.puzzle.start
-    } else if (toReset) {
-      userObj.activePuzzle.answers = userObj.activePuzzle.puzzle.start
-    } else {
-      userObj.activePuzzle.puzzle = userObj.saved[0] || randomPuzzle
-      userObj.activePuzzle.answers = userObj.activePuzzle.answers.length === 0 ? userObj.activePuzzle.puzzle.start : userObj.activePuzzle.answers
+    if (!userObj.activePuzzle) {
+      userObj.activePuzzle = {};
     }
 
-    userObj.activePuzzle.solution = userObj.activePuzzle.puzzle.solution
+    if (newPuzz) {
+      const randomPuzzle = allPuzzles[Math.floor(Math.random() * allPuzzles.length)];
+      userObj.activePuzzle.puzzle = randomPuzzle;
+      userObj.activePuzzle.answers = randomPuzzle.start;
+      userObj.activePuzzle.solution = randomPuzzle.solution;
+    } else if (toReset) {
+      userObj.activePuzzle.answers = userObj.activePuzzle.puzzle.start;
+    } else {
+      const selectedPuzzle = userObj.saved[0] || allPuzzles[Math.floor(Math.random() * allPuzzles.length)];
+      userObj.activePuzzle.puzzle = selectedPuzzle;
+      userObj.activePuzzle.answers = userObj.activePuzzle.answers || selectedPuzzle.start;
+      userObj.activePuzzle.solution = selectedPuzzle.solution;
+    }
 
-    localStorage.setItem('isUserActive', true)
-    localStorage.setItem('currentUser', JSON.stringify(userObj))
+    localStorage.setItem('isUserActive', true);
+    localStorage.setItem('currentUser', JSON.stringify(userObj));
 
-    putCurrentUser(userObj)
-    navigate("/loading/loadMsg")
-  }
+    putCurrentUser(userObj);
+    navigate("/loading/loadMsg");
+  };
 
   const handleLoginSuccess = (userObj) => {
-    handleSetCurrentUser(userObj)
+    handleSetCurrentUser(userObj);
     setShowApp(true);
   };
 
@@ -68,21 +71,21 @@ function App() {
     fetch("http://localhost:3001/users/guestuser@gmail.com")
     .then(response => {
       if (response.ok) return response.json();
-      else throw (response.statusText)
+      else throw (response.statusText);
     })
     .then(userObj => {
       handleSetCurrentUser(userObj);
       setShowApp(true);
     })
-    .catch(err => alert(err))
+    .catch(err => alert(err));
   };
 
   const handleLogout = () => {
-    putCurrentUser({id: 0})
+    putCurrentUser({id: 0});
     setShowApp(false);
 
-    localStorage.setItem('isUserActive', false)
-    localStorage.setItem('currentUser', {id: 0})
+    localStorage.setItem('isUserActive', false);
+    localStorage.setItem('currentUser', JSON.stringify({id: 0}));
 
     navigate("/");
   };
@@ -96,3 +99,4 @@ function App() {
 }
 
 export default App;
+
