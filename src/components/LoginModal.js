@@ -10,6 +10,11 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
+  const handleLoginToggle = () => {
+    setError('');
+    setIsLogin(!isLogin);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -27,29 +32,52 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
     }
 
     try {
-      const newUser = {
-        id: lowercaseEmail,
-        username: lowercaseEmail.split('@')[0],
-        email: lowercaseEmail,
-        password,
-        points: 0,
-        consumables: [],
-        activePuzzle: {},
-        saved: []
-      };
+      if (isLogin) {
+        // Check if the user exists in your database
+        const response = await fetch(`${URL}/${lowercaseEmail}`);
+        if (response.status !== 200) {
+          setError('User not found. Please register first.');
+          return;
+        }
 
-      const response = await fetch(URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUser),
-      });
+        const userData = await response.json();
+        if (userData.password !== password) {
+          setError('Invalid password.');
+          return;
+        }
 
-      if (response.ok) {
-        const data = await response.json();
-        onLoginSuccess(data);
+        onLoginSuccess(userData);
       } else {
-        const errorMessage = await response.text();
-        setError(errorMessage);
+        // Check if the user already exists in your database
+        const response = await fetch(`${URL}/${lowercaseEmail}`);
+        if (response.status === 200) {
+          setError('User already exists. Please login.');
+          return;
+        }
+
+        const newUser = {
+          id: lowercaseEmail,
+          username: lowercaseEmail.split('@')[0],
+          email: lowercaseEmail,
+          password,
+          points: 0,
+          consumables: [],
+          activePuzzle: {},
+          saved: []
+        };
+
+        const registerResponse = await fetch(URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newUser),
+        });
+
+        if (registerResponse.ok) {
+          onLoginSuccess(newUser);
+        } else {
+          const errorMessage = await registerResponse.text();
+          setError(errorMessage);
+        }
       }
     } catch (err) {
       setError('An error occurred.');
@@ -59,7 +87,7 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
 
   return (
     <div className="login-modal">
-      <button onClick={() => setIsLogin(!isLogin)}>
+      <button onClick={handleLoginToggle}>
         {isLogin ? 'Create Account' : 'Login'}
       </button>
       {error && <div className="error">{error}</div>}
@@ -75,3 +103,4 @@ function LoginModal({ onLoginSuccess, onContinueAsGuest }) {
 }
 
 export default LoginModal;
+
