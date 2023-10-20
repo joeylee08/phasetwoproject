@@ -24,7 +24,7 @@ const LeaderBoard = () => {
             <span style={styles.rank}>{idx + 1}</span>
             <span style={styles.username}>{user.username || "N/A"}</span> 
             <div style={styles.pointsContainer}>
-                <div style={{...styles.pointsBar, width: `${(user.points / 1000) * 100}%`}}></div>
+                <div style={{...styles.pointsBar, width: `${(user.points / 10000) * 100}%`}}></div>
             </div>
             <span style={styles.points}>{user.points}</span>
         </div>
@@ -32,6 +32,8 @@ const LeaderBoard = () => {
     
 
     return (
+      <>
+        <br></br>
         <div style={styles.leaderBoard}>
             <h1 style={styles.title}>Leader Board</h1>
             <div style={styles.headers}>
@@ -41,6 +43,7 @@ const LeaderBoard = () => {
             </div>
             {mappedUsers}
         </div>
+      </>
     );
 };
 
@@ -49,10 +52,12 @@ const styles = {
         fontFamily: '"Arial", sans-serif',
         textAlign: 'center',
         width: '80%',
-        margin: 'auto',
-        backgroundColor: '#f9f9f9',
+        margin: '100px auto',
+        height: '60vh',
+        backgroundColor: 'rgb(249, 249, 249)',
         padding: '20px',
         borderRadius: '8px',
+        overflowY: 'scroll'
     },
     title: {
         marginBottom: '20px',
