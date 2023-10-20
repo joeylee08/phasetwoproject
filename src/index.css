@@ -213,10 +213,10 @@ div#playfield .playfield-elements {
   height: 45px;
 }
 
-/* #sudoku-table td.red {
+#sudoku-table td.red {
   border: 1px solid #ff0000;
   background-color: #ff0000;
-} */
+}
 
 #sidebar h3 {
   text-align: center;
