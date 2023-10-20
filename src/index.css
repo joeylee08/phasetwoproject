@@ -1,3 +1,5 @@
+/* ========= Body ========= */
+
 html {
   padding: 2rem;
   background-color: #333435f5;
@@ -27,6 +29,29 @@ code {
 
 h1 {
   color: #d0dbf8;
+}
+
+div > span {
+  min-width: 45px;
+}
+
+/* ========= Error ========= */
+
+#error h1 {
+  margin: 0;
+}
+
+#error {
+  background-color: #800000;
+  color: #eee;
+  font-weight: bold;
+  padding: 35px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+
 }
 
 /* ========= Header ========= */
@@ -76,6 +101,8 @@ nav.hidden {
   gap: 20px;
 }
 
+/* ========= Stats ========= */
+
 #logout, #saveGame, #checkSolution, #reset, #newPuzzle {
   border: 5px solid #1e58ff;
   background-color: #1e58ff;
@@ -86,50 +113,23 @@ nav.hidden {
   margin: 10px;
 }
 
-#logout:hover {
+#logout {
   border: 5px solid #c50606;
   background-color: #c50606;
+}
+
+#logout:hover {
+  border: 5px solid #1e58ff;
+  background-color: #1e58ff;
 }
 
 .user-info {
   margin-right: 20px;
 }
 
-
-#playfield {
-  display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-template-rows: repeat(5, 20%);
-  margin: auto;
-  height: 725px;
-  background-color: #d0dbf8;
-  border: 10px solid #1e58ff;
-  border-radius: 10px;
-}
-
-div#playfield .playfield-elements {
-  border: 2px solid #1e58ff;
-}
-
-#sidebar {
-  width: 100%;
-  height: 100%;
-  border: 2px solid green;
-  grid-row: 1 / span 5;
-  grid-column: 1 / span 1;
-}
-
-#sidebar li {
-  color: #1e58ff;
-  list-style: none;
-  margin: 15px 0;
-  font-weight: bold;
-}
-
 #stats {
   width: 100%;
   height: 100%;
-  /* border: 2px solid red; */
   grid-row: 1 / span 1;
   grid-column: 2 / span 4;
   position: relative;
@@ -139,32 +139,21 @@ div#playfield .playfield-elements {
   flex-wrap: wrap;
 }
 
-/* #saveGame {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin-right: 25px;
-}
-
-#checkSolution {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  margin-left: 25px;
-} */
-
 #saveGame:hover {
   border: 5px solid #05a405;
   background-color: #05a405;
 }
+
 #reset:hover {
   border: 5px solid #000;
   background-color: #000;
 }
+
 #newPuzzle:hover {
   border: 5px solid #8e07bb;
   background-color: #8e07bb;
 }
+
 #checkSolution:hover {
   border: 5px solid #cb4409;
   background-color: #cb4409;
@@ -218,32 +207,56 @@ div#playfield .playfield-elements {
   background-color: #ff0000;
 }
 
+#playfield {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 20%);
+  margin: auto;
+  height: 725px;
+  background-color: #d0dbf8;
+  border: 10px solid #1e58ff;
+  border-radius: 10px;
+}
+
+div#playfield .playfield-elements {
+  border: 2px solid #1e58ff;
+}
+
+div#sidebar ul li span.dataTitle {
+  font-weight: bold;
+}
+
+#sidebar {
+  width: 100%;
+  /* height: 100%; */
+  border: 2px solid green;
+  grid-row: 1 / span 5;
+  grid-column: 1 / span 1;
+}
+
+#sidebar li {
+  color: #1e58ff;
+  list-style: none;
+  margin: 15px 0;
+}
+
 #sidebar h3 {
-  text-align: center;
+  padding-left: 4px;
 }
 
 #sidebar {
   font-size: 1.2rem;
 }
 
-/* ========= Body ========= */
-
-#error h1 {
-  margin: 0;
+#sidebar ul {
+  padding-inline-start: 5px;
 }
 
-#error {
-  background-color: #800000;
-  color: #eee;
+.bold-text {
   font-weight: bold;
-  padding: 35px;
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
-
 }
+
+/* ========= Easter Egg ========= */
 
 #goldstar {
   display: block;
@@ -256,19 +269,6 @@ div#playfield .playfield-elements {
 #loadingText {
   text-align: center;
   margin-top: 5rem;
-}
-
-#sudoku-table td.border-right {
-  border-right: 4px solid black !important;
-}
-
-#sudoku-table td.border-top {
-  border-top: 4px solid black !important;
-}
-
-#sidebar-list {
-  text-align: left;
-  margin-left: -1rem;
 }
 
 /* ========= Instructions ========= */
@@ -312,11 +312,19 @@ article {
 
 #leaders li {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   list-style-type: none;
   font-size: 21px;
   font-weight: 500;
   margin: 25px 0;
+}
+
+/* ========= Your Puzzles ========= */
+
+.saved-puzzles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media (min-width: 992px) {
@@ -339,10 +347,14 @@ article {
     font-size: 1rem;
   }
   #sidebar li, .navLink {
-    font-size: 1rem;
+    font-size: 12px;
   }
   #sidebar ul {
-    padding-left: 2rem;
+    /* padding-left: 2rem; */
+    padding: 0 5px;
+  }
+  #sidebar h3 {
+    font-size: large;
   }
   nav {
     display: flex;
@@ -378,7 +390,9 @@ article {
     width: 25px;
     height: 25px;
   } 
-
+  #sidebar h3 {
+    font-size: 14px;
+  }
 }
 
 @media (max-width:550px) {
@@ -445,11 +459,6 @@ article {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-  }
-  #checkSolution, #saveGame {
-    position: relative;
-    margin: 0;
-    top: 0;
   }
   #logout, #saveGame, #checkSolution, #reset, #newPuzzle {
     font-weight:300;
