@@ -1,75 +1,55 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import GameBoard from "./GameBoard";
 import './YourPuzzles.css';
+import { useNavigate } from 'react-router-dom';
 
 const YourPuzzles = () => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [allPuzzles, setAllPuzzles] = useState([]);
-    const currentUserURL = "http://localhost:3001/currentUser";
-    const allPuzzlesURL = "http://localhost:3001/puzzles";
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Load currentUser from local storage
+        const savedUser = localStorage.getItem('currentUser');
+        if (savedUser) {
+            setCurrentUser(JSON.parse(savedUser));
+        }
+    }, []);
+
+    useEffect(() => {
+        // Save currentUser to local storage whenever it changes
+        if (currentUser) {
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
+    }, [currentUser]);
+
+    const handleDeleteClick = async (puzzleIndex) => {
+        const updatedSavedPuzzles = currentUser.saved.filter((_, index) => index !== puzzleIndex);
+        
+        setCurrentUser(prevUser => ({
+            ...prevUser,
+            saved: updatedSavedPuzzles
+        }));
+    };
 
     const handlePuzzleClick = (puzzle) => {
         navigate("/", { state: { puzzleData: puzzle } });
     };
 
     const renderSavedPuzzles = () => {
-        if (!currentUser) {
-            return <p>Loading...</p>;
-        }
-    
-        const savedPuzzles = currentUser.saved || [];
-    
+        if (!currentUser) return <p>Loading...</p>;
+
         return (
             <div className="saved-puzzles">
-                {currentUser.activePuzzle && (
-                    <div className="saved-puzzle" onClick={() => handlePuzzleClick(currentUser.activePuzzle.puzzle)}>
-                        <h2>Active Puzzle</h2>
-                        <GameBoard currentPuzzle={currentUser.activePuzzle.puzzle} editable={false} />
-                    </div>
-                )}
-                {savedPuzzles.length > 0 ? savedPuzzles.map((puzzle, index) => (
-                    <div key={currentUser.id + "-saved-" + index} className="saved-puzzle" onClick={() => handlePuzzleClick(puzzle)}>
+                {currentUser.saved.map((puzzle, index) => (
+                    <div key={index} className="saved-puzzle">
                         <h2>Saved Puzzle {index + 1}</h2>
                         <GameBoard currentPuzzle={puzzle} editable={false} />
+                        <button onClick={() => handleDeleteClick(index)}>Delete Puzzle</button>
                     </div>
-                )) : <p>No saved puzzles</p>}
+                ))}
             </div>
         );
     };
-    
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(currentUserURL);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch data');
-                }
-                const data = await response.json();
-                setCurrentUser(data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-
-        const fetchAllPuzzles = async () => {
-            try {
-                const response = await fetch(allPuzzlesURL);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch all puzzles');
-                }
-                const data = await response.json();
-                setAllPuzzles(data);
-            } catch (error) {
-                console.error('Error fetching all puzzles:', error);
-            }
-        };
-
-        fetchData();
-        fetchAllPuzzles();
-    }, []); 
 
     return (
         <div className="your-puzzles-container">
