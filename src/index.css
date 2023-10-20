@@ -182,14 +182,13 @@ div#playfield .playfield-elements {
 #sudoku-table {
   height: 540px;
   width: 540px;
-  border: .3em solid black;
-  border-radius: 10px;
+  border: 4px solid black;
+  border-radius: 7px;
   background-color: black;
   margin: 1.9% auto;
 }
 
 #sudoku-table td {
-  border: .05em solid black;
   background-color: #1eb5ff;
   text-align: center;
   font-weight: bold;
@@ -198,13 +197,13 @@ div#playfield .playfield-elements {
   height: 40px;
 }
 
-#sudoku-table td.top {
+/* #sudoku-table td.top {
   border-top: .3em solid black;
 }
 
 #sudoku-table td.right {
   border-right: .3em solid black;
-}
+} */
 
 .sudoku-input {
   text-align: center;
@@ -214,10 +213,10 @@ div#playfield .playfield-elements {
   height: 45px;
 }
 
-#sudoku-table td.red {
+/* #sudoku-table td.red {
   border: 1px solid #ff0000;
   background-color: #ff0000;
-}
+} */
 
 #sidebar h3 {
   text-align: center;
@@ -259,8 +258,17 @@ div#playfield .playfield-elements {
   margin-top: 5rem;
 }
 
-div#sidebar ul li span.dataTitle {
-  font-weight: bold;
+#sudoku-table td.border-right {
+  border-right: 4px solid black;
+}
+
+#sudoku-table td.border-top {
+  border-top: 4px solid black;
+}
+
+#sidebar-list {
+  text-align: left;
+  margin-left: -1rem;
 }
 
 /* ========= Instructions ========= */
