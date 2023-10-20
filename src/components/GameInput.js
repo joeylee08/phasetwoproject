@@ -5,7 +5,7 @@ const GameInput = ({ cellId, answers }) => {
     const [inputValue, setInputValue] = useState(initialValue);
 
     const handleInput = (e) => {
-        const newValue = e.target.value;
+        const newValue = e.target.value.length > 1 ? e.target.value.slice(1) : e.target.value;
         const nextClick = +localStorage.getItem('clickCount') + 1
         
         localStorage.setItem('clickCount', nextClick)
@@ -30,7 +30,7 @@ const GameInput = ({ cellId, answers }) => {
             className="sudoku-input"
             onInput={handleInput}
             value={inputValue}
-            maxLength="1" // Limit the input length to 1
+            // maxLength="1" // Limit the input length to 1
         />
     );
 };
