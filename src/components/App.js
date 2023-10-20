@@ -14,6 +14,20 @@ function App() {
 
   const navigate = useNavigate();
 
+  const allCells = document.querySelectorAll('td')
+  
+  allCells.forEach((cell)=> {
+    if (cell.id % 9 === 2 || cell.id % 9 === 5) {
+      cell.classList.add('border-right')
+    }
+    if (cell.id >= 27 && cell.id <= 35) {
+      cell.classList.add('border-top')
+    }
+    if (cell.id >= 54 && cell.id <= 62) {
+      cell.classList.add('border-top')
+    }
+  })
+
   useEffect(() => {
   
     if (localStorage.getItem('isUserActive') === 'true') setShowApp(true)

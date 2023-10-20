@@ -259,11 +259,11 @@ div#playfield .playfield-elements {
 }
 
 #sudoku-table td.border-right {
-  border-right: 4px solid black;
+  border-right: 4px solid black !important;
 }
 
 #sudoku-table td.border-top {
-  border-top: 4px solid black;
+  border-top: 4px solid black !important;
 }
 
 #sidebar-list {
